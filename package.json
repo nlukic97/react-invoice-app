@@ -13,6 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "compile:sass":"sass src/scss/main.scss src/css/App.css",
+    "compile:sass-w":"sass src/scss/main.scss src/css/App.css --watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -34,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.43.4"
   }
 }
