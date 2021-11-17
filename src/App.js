@@ -19,9 +19,9 @@ function App() {
 
 
   return (
-    <div>
+    <div className='App'>
       <Sidebar />
-      <h1>Cao</h1>
+      <h1>CaoCaoCaoCaoCaoCaoCaoCaoCaoCao</h1>
     </div>
   );
 }

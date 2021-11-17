@@ -1,7 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+
 html.light-theme body {
     background-color: #fff;
+
+    .toggle-theme-icon {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 html.dark-theme body {
     background-color: black;
+}
+
+.App {
+    // margin-left: 103px;
+    width: 730px;
+    margin: 0 auto;
 }
