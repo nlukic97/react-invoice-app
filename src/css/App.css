@@ -55,8 +55,9 @@ html.dark-theme body {
 }
 
 .App {
-  width: 730px;
+  max-width: 730px;
   margin: 0 auto;
+  border: 1px solid red;
 }
 
 button.btn {

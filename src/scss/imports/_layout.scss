@@ -14,6 +14,8 @@ html.dark-theme body {
 
 .App {
     // margin-left: 103px;
-    width: 730px;
+    max-width: 730px;
+    // max-width: 50; //combine this somehow
     margin: 0 auto;
+    border: 1px solid red;
 }
