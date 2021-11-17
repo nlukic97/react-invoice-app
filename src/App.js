@@ -6,11 +6,12 @@ import Data from './data/data.json';
 
 // components
 import Sidebar from './components/Sidebar';
+import Invoices from './components/Invoices';
 
 function App() {
 
   // data imported from the json file
-  const [data, setData] = useState(Data)
+  const [data] = useState(Data)
   
   //upon having the data rendered, log it to the console
   useEffect(function(){
@@ -21,7 +22,8 @@ function App() {
   return (
     <div className='App'>
       <Sidebar />
-      <h1>CaoCaoCaoCaoCaoCaoCaoCaoCaoCao</h1>
+      
+      <Invoices invoices={data} />
     </div>
   );
 }

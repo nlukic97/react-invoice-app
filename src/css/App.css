@@ -49,13 +49,9 @@ h4 {
 html.light-theme body {
   background-color: #fff;
 }
-html.light-theme body .toggle-theme-icon {
-  width: 20px;
-  height: 20px;
-}
 
 html.dark-theme body {
-  background-color: black;
+  background-color: #000;
 }
 
 .App {
