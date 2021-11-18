@@ -57,7 +57,6 @@ html.dark-theme body {
 .App {
   max-width: 730px;
   margin: 0 auto;
-  border: 1px solid red;
 }
 
 button.btn {
@@ -130,6 +129,30 @@ html.light-theme .toggle-theme-icon {
 }
 html.dark-theme .toggle-theme-icon {
   background: url("../images/icon-sun.svg") no-repeat center center/cover;
+}
+
+._invoice_list_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+}
+._invoice_list_item:not(:first-child), ._invoice_list_item:not(:last-child) {
+  background-color: orange;
+  margin: 16px 0;
+}
+._invoice_list_item:first-child, ._invoice_list_item:last-child {
+  margin: 0;
+}
+._invoice_list_item .left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+._invoice_list_item .right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 /*# sourceMappingURL=App.css.map */

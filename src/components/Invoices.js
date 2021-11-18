@@ -16,7 +16,11 @@ const Invoices = ({invoices}) => {
             <h1>Invoices</h1>
             <p className='body-1'>{message}</p>
 
-            {invoices.map(invoice=> <Invoice data={invoice} key={invoice.id} /> )}
+            <div className="invoice_items_list">
+                {invoices.map(invoice=> {
+                    return <Invoice data={invoice} key={invoice.id} className="invoices" />
+                })}
+            </div>
         </div>
     )
 }
