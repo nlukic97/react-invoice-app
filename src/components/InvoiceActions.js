@@ -1,17 +1,27 @@
-const InvoiceActions = ({message}) => {
+import FilterOptions from "./FilterOptions";
+
+const InvoiceActions = ({message, changedFilter}) => {
+
+    function openModal(){
+        console.log('open modal');
+    }
+
     return (
         <div className="invoice_actions">
-
             <div className="__heading_and_amount">
                 <h1>Invoices</h1>
                 <p className='body-1'>{message}</p>
             </div>
 
             <div className="__action_contols">
-                <h4>Filter by status</h4>
-                <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
+                <div className="___filter_container">
+                    <h4>Filter by status</h4>
+                    <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
+                </div>
 
-                <button className="btn add-invoice-btn">
+            <FilterOptions changedFilter={changedFilter} />
+
+                <button className="btn add-invoice-btn" onClick={openModal}>
                     <div className="white-circle">
                         <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.313 10.023v-3.71h3.71v-2.58h-3.71V.023h-2.58v3.71H.023v2.58h3.71v3.71z" fill="#7C5DFA" fillRule="nonzero"/></svg>
                     </div>
@@ -19,6 +29,7 @@ const InvoiceActions = ({message}) => {
                 </button>
             </div>
         </div>
+
     )
 }
 

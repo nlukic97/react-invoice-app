@@ -248,7 +248,14 @@ html.dark-theme .toggle-theme-icon {
   display: flex;
   align-items: center;
 }
-.invoice_actions .__action_contols > h4 {
+.invoice_actions .__action_contols .___filter_container {
+  display: flex;
+  align-items: center;
+}
+.invoice_actions .__action_contols .___filter_container:hover {
+  cursor: pointer;
+}
+.invoice_actions .__action_contols .___filter_container h4 {
   margin-right: 16px;
 }
 
