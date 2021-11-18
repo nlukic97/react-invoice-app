@@ -47,7 +47,7 @@ h4 {
 }
 
 html.light-theme body {
-  background-color: #fff;
+  background-color: #F8F8FB;
 }
 
 html.dark-theme body {
@@ -57,6 +57,14 @@ html.dark-theme body {
 .App {
   max-width: 730px;
   margin: 0 auto;
+}
+
+.color-grayblue {
+  color: #7E88C3;
+}
+
+.color-gray-dark {
+  color: #888EB0;
 }
 
 button.btn {
@@ -135,10 +143,12 @@ html.dark-theme .toggle-theme-icon {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid red;
+  padding: 24px 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
 }
 ._invoice_list_item:not(:first-child), ._invoice_list_item:not(:last-child) {
-  background-color: orange;
   margin: 16px 0;
 }
 ._invoice_list_item:first-child, ._invoice_list_item:last-child {
@@ -149,10 +159,59 @@ html.dark-theme .toggle-theme-icon {
   align-items: center;
   justify-content: flex-start;
 }
+._invoice_list_item .left .__id, ._invoice_list_item .left .__due_date {
+  margin-right: 45px;
+}
+._invoice_list_item .left .__client_name {
+  color: #858BB2;
+}
+._invoice_list_item .left .__due_date, ._invoice_list_item .left .__client_name {
+  font-weight: 500;
+}
 ._invoice_list_item .right {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+._invoice_list_item .right .__amount {
+  margin-right: 40px;
+}
+._invoice_list_item .right .__invoice_status {
+  width: 104px;
+  text-align: center;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  margin-right: 20px;
+}
+._invoice_list_item .right .__invoice_status .__invoice_status_circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+._invoice_list_item .right .__invoice_status.paid {
+  color: #33D69F;
+  background-color: #33d6a011;
+}
+._invoice_list_item .right .__invoice_status.paid .__invoice_status_circle {
+  background-color: #33D69F;
+}
+._invoice_list_item .right .__invoice_status.pending {
+  color: #FF8F00;
+  background-color: #ff910015;
+}
+._invoice_list_item .right .__invoice_status.pending .__invoice_status_circle {
+  background-color: #FF8F00;
+}
+._invoice_list_item .right .__invoice_status.draft {
+  color: #373B53;
+  background-color: #373b5313;
+}
+._invoice_list_item .right .__invoice_status.draft .__invoice_status_circle {
+  background-color: #373B53;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -5,7 +5,6 @@
     ._invoice_list_item {
 
         &:not(:first-child), &:not(:last-child) {
-            background-color: orange;
             margin: 16px 0;
         }
 
@@ -16,19 +15,83 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border: 1px solid red;
+        padding: 24px 30px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow:0 10px 10px -10px rgb(72, 84, 159,.1);
 
     
         .left {
             display: flex;
             align-items: center;
             justify-content: flex-start;
+
+            .__id, .__due_date {
+                margin-right: 45px;
+            }
+
+            .__client_name {
+                color:#858BB2;
+            }
+
+            .__due_date, .__client_name {
+                font-weight: 500;
+            }
         }
         
         .right {
             display: flex;
             align-items: center;
             justify-content: flex-start;
+
+            .__amount {
+                margin-right: 40px;
+            }
+
+            .__invoice_status {
+                width: 104px;
+                text-align: center;
+                line-height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 6px;
+                margin-right: 20px;
+
+                .__invoice_status_circle {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    margin-right: 8px;
+                }
+
+                &.paid {
+                    color: #33D69F;
+                    background-color: #33d6a011;
+
+                    .__invoice_status_circle {
+                        background-color: #33D69F;
+                    }
+                }
+
+                &.pending {
+                    color: #FF8F00;
+                    background-color: #ff910015;
+
+                    .__invoice_status_circle {
+                        background-color: #FF8F00;
+                    }
+                }
+
+                &.draft {
+                    color: #373B53;
+                    background-color: #373b5313;
+
+                    .__invoice_status_circle {
+                        background-color: #373B53;
+                    }
+                }
+            }
         }
     }
 // }
