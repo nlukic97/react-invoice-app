@@ -1,0 +1,14 @@
+.invoice_actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .__action_contols {
+        display: flex;
+        align-items: center;
+
+        > h4 {
+            margin-right: 16px;
+        }
+    }
+}

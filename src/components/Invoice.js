@@ -1,5 +1,5 @@
 const Invoice = ({data}) => {
-    console.log(data)
+    
     return (
         <div className="_invoice_list_item">
             <div className="left">

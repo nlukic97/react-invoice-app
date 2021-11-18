@@ -1,5 +1,32 @@
 button {
     &.btn {
         border-radius: 24px;
+        border: none;
+        font-family: 'Spartan',sans-serif;
+
+        &.add-invoice-btn {
+            background-color: #7C5DFA;
+            padding: 8px 16px 8px 8px;
+            margin-left: 40px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+
+            .white-circle {
+                background-color: #fff;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 16px;
+            }
+
+            &:hover {
+                background-color: #9277FF;
+                cursor: pointer;
+            }
+        }
     }
 }

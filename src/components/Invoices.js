@@ -1,6 +1,8 @@
 import Invoice from './Invoice';
+import InvoiceActions from './InvoiceActions';
 
 const Invoices = ({invoices}) => {
+
     let message ="";
     
     if(invoices.length === 0){
@@ -13,8 +15,7 @@ const Invoices = ({invoices}) => {
 
     return (
         <div>
-            <h1>Invoices</h1>
-            <p className='body-1'>{message}</p>
+            <InvoiceActions message={message} />
 
             <div className="invoice_items_list">
                 {invoices.map(invoice=> {
