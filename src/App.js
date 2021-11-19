@@ -1,5 +1,5 @@
 import './css/App.css';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 // data
 import Data from './data/data.json';
@@ -27,14 +27,9 @@ function App() {
 
   /** 
    * the number of different invoice statues that the invoices can be filtered by. 
-   * If increasing this number from 3, change the state and update the method 'get_filtered_data_msg'  */
+   * If increasing this number from 3, change the state and update the method 'get_filtered_data_msg' as described in the comments
+   * */
   const [num_of_filters] = useState(3) 
-  
-
-  //upon having the data rendered, log it to the console
-  useEffect(function(){
-    console.log(filters);
-  },[filters])
 
   
   //Called from component:  ./ ->> Invoices.js ->> InvoiceActions.js ->> FilterOptions.js
@@ -73,8 +68,7 @@ function App() {
     .join(' and ') 
 
 
-    // The alternative code in the event that there are more than 3 filters, currently not necessary
-
+    // adds a , to the end of all items in the array, but adding ' and ' before the last element
     /*
     .map((amount_info, index, array)=>{
       if(array.length === 1){
