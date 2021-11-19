@@ -20,15 +20,14 @@ function App() {
   } else {
     data_to_use =  Data
     localStorage.setItem('invoice-data',JSON.stringify(data_to_use))
-
   }
-
+  
   const [data] = useState(data_to_use)
-
+  
   
   //upon having the data rendered, log it to the console
   useEffect(function(){
-    // console.log(data);
+    // localStorage.setItem('invoice-data',JSON.stringify(data))
   },[data])
 
 

@@ -1,22 +1,11 @@
-import {useState, useEffect} from 'react';
+const FilterOptions = ({changedFilter}) => {   
 
-const FilterOptions = ({changedFilter}) => {
-
-    const [filters, setFilters] = useState({
-        draft:false,
-        pending:false,
-        paid:false
-    })
-
-    // If any of the checkboxes change, the local state of the filters will be changed
     function checkboxChanged(e){
-        setFilters({...filters, [e.target.name]:e.target.checked})
+        changedFilter({
+            name: e.target.name, 
+            value: e.target.checked
+        })
     }
-
-    useEffect(()=>{
-        changedFilter(filters)
-    },[filters, changedFilter])
-
 
 
     return (

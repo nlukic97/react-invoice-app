@@ -1,12 +1,12 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 import Invoice from './Invoice';
 import InvoiceActions from './InvoiceActions';
 
 const Invoices = ({invoices}) => {
-    const [filters, setFilters] = useState(['paid'])
+    const [filters, setFilters] = useState([]) //paid, pending, draft
 
-    let message ="";
+    let message =""; // this should perhaps be in state
     
     if(invoices.length === 0){
         message = (`There are no invoices`)
@@ -16,18 +16,24 @@ const Invoices = ({invoices}) => {
         message = (`There are ${invoices.length} invoices`)
     }
 
-    let filterArray = []
+    function changedFilter(addedFilter){
+        setFilters((addedFilter.value === true) ? [...filters,addedFilter.name] : filters.filter(filter=> filter !== addedFilter.name ))
+    }
 
-    function changedFilter(data){
-        let newArr = [];
-        let values = Object.values(data)
-        let keys = Object.keys(data)
-        
-        values.forEach((value,index)=> (value === true) ? newArr.push(keys[index]) : null)
-        filterArray = newArr;
-        console.log(filterArray);
-        // setFilters(filterArray) //for some reason this creates an endless loop where this method updates the filters state, the filters state renders the selected boxes which activate this method again
-        // gotta find a way to then re-render the data being displayed
+    function render_all_invoices(){
+        return invoices.map(invoice=> {
+            return <Invoice data={invoice} key={invoice.id} className="invoices" /> 
+        })
+    }
+    
+    function render_filtered_invoices(){
+        return invoices.map(invoice=>{
+            if(filters.includes(invoice.status)){
+                return <Invoice data={invoice} key={invoice.id} className="invoices" /> 
+            } else {
+                return null
+            }
+        })
     }
 
     return (
@@ -37,16 +43,7 @@ const Invoices = ({invoices}) => {
 
             <div className="invoice_items_list">
                 
-                {/* still figuring out how to filter how to dfiltere */}
-                {invoices.map(invoice=> {
-                    if(filters.length === 0){
-                        return <Invoice data={invoice} key={invoice.id} className="invoices" /> 
-
-                    } else if(filters.includes(invoice.status)){
-                        // here we want to check if the array of filters includes any of the elements from the filter array
-                        return <Invoice data={invoice} key={invoice.id} className="invoices" /> 
-                    }
-                })}
+                {(filters.length < 1 ? render_all_invoices() : render_filtered_invoices())}
 
             </div>
         </div>
