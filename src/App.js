@@ -24,6 +24,11 @@ function App() {
   
   const [data] = useState(data_to_use)
   const [filters, setFilters] = useState([]) //paid, pending, draft
+
+  /** 
+   * the number of different invoice statues that the invoices can be filtered by. 
+   * If increasing this number from 3, change the state and update the method 'get_filtered_data_msg'  */
+  const [num_of_filters] = useState(3) 
   
 
   //upon having the data rendered, log it to the console
@@ -42,15 +47,64 @@ function App() {
     return data.filter(item=> filters.includes(item.status))
   }
 
+  /**
+   * This will return the message in case a filter is added that does not apply 
+   * to all the invoices (1 or 2 filters). It will tell us how many of each type of invoice we have.
+   * Example where the 'paid' and 'pending' filter are applied:    'There are 3 paid and 2 pending invoices'
+   */
+  function get_filtered_data_msg(filtered_invoices){
+    return filters.map(filter=>{
+
+      //getting number of all invoices that match the filter from the map function
+      return `
+      ${filtered_invoices.reduce((prev, curr)=>{
+        if(curr.status === filter){
+          return prev + 1
+        } else {
+          return prev
+        }
+      },0)} ${filter}` // returning reduce method which counts the invoices that have a status matching the filter from the map method + the name of the filter
+
+    })
+    
+    /** This is currently enough since we only have 3 filters. 
+     * If more are added, comment the line underneath and uncomment the next large block comment. 
+     * It will also work now if you do it now, but is currently an uncesessary extra step. */
+    .join(' and ') 
+
+
+    // The alternative code in the event that there are more than 3 filters, currently not necessary
+
+    /*
+    .map((amount_info, index, array)=>{
+      if(array.length === 1){
+        return amount_info
+      } else {
+
+        if(index < array.length - 2){
+          return amount_info + ', '
+
+        } else if( index < array.length - 1){
+          return amount_info
+
+        } else {
+          return ' and ' + amount_info;
+        }
+
+      }
+    }).join('')
+    */
+  }
+
 
   return (
     <div className='App'>
       <Sidebar />
 
-      {(filters.length === 0 || filters.length > 2) ? 
+      {(filters.length === 0 || filters.length > num_of_filters - 1) ? 
           (<Invoices invoices={data} message={`There are ${data.length} invoices`} changedFilter={changedFilter} />)
         :
-          (<Invoices invoices={get_filtered_data()} message={`There are ${get_filtered_data().length} ${filters.join(' and ')} invoices`} changedFilter={changedFilter} />)
+          (<Invoices invoices={get_filtered_data()} message={`There are ${get_filtered_data_msg(get_filtered_data())} invoices`} changedFilter={changedFilter} />)
       }
     </div>
   );
