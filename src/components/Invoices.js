@@ -7,7 +7,8 @@ const Invoices = ({invoices,message, changedFilter}) => {
             <InvoiceActions message={message} changedFilter={changedFilter} />
 
             <div className="invoice_items_list">
-                {invoices.map(invoice=> <Invoice data={invoice} key={invoice.id} className="invoices" /> )}
+                {/* {invoices.map(invoice=> <Invoice data={invoice} key={invoice.id} className="invoices" /> )} */}
+                {invoices.map(invoice=> <Invoice data={invoice} key={invoice.id} /> )}
             </div>
         </div>
     )

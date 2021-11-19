@@ -12,6 +12,11 @@
             margin: 0;
         }
 
+        &:hover {
+            border: 1px solid #7C5DFA;
+            cursor: pointer;
+        }
+
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -19,6 +24,7 @@
         background-color: #fff;
         border-radius: 8px;
         box-shadow:0 10px 10px -10px rgb(72, 84, 159,.1);
+        border: 1px solid transparent;
 
     
         .left {

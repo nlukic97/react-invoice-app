@@ -1,7 +1,13 @@
 const Invoice = ({data}) => {
     
+    function clickedOnInvoice(){
+        console.log(data)
+        // do something which will open the modal
+    }
+
+
     return (
-        <div className="_invoice_list_item">
+        <div className="_invoice_list_item" onClick={clickedOnInvoice}>
             <div className="left">
                 <h4 className="__id"><span className="color-grayblue">#</span>{data.id}</h4>
 

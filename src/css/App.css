@@ -171,12 +171,17 @@ html.dark-theme .toggle-theme-icon {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+  border: 1px solid transparent;
 }
 ._invoice_list_item:not(:first-child), ._invoice_list_item:not(:last-child) {
   margin: 16px 0;
 }
 ._invoice_list_item:first-child, ._invoice_list_item:last-child {
   margin: 0;
+}
+._invoice_list_item:hover {
+  border: 1px solid #7C5DFA;
+  cursor: pointer;
 }
 ._invoice_list_item .left {
   display: flex;
