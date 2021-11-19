@@ -23,18 +23,35 @@ function App() {
   }
   
   const [data] = useState(data_to_use)
+  const [filters, setFilters] = useState([]) //paid, pending, draft
   
-  
+
   //upon having the data rendered, log it to the console
   useEffect(function(){
-    // localStorage.setItem('invoice-data',JSON.stringify(data))
-  },[data])
+    console.log(filters);
+  },[filters])
+
+  
+  //Called from component:  ./ ->> Invoices.js ->> InvoiceActions.js ->> FilterOptions.js
+  function changedFilter(addedFilter){
+    setFilters((addedFilter.value === true) ? [...filters,addedFilter.name] : filters.filter(filter=> filter !== addedFilter.name ))
+  }
+
+  //called in the invoices component to apply the 'filters' to it
+  function get_filtered_data(){
+    return data.filter(item=> filters.includes(item.status))
+  }
 
 
   return (
     <div className='App'>
       <Sidebar />
-      <Invoices invoices={data} />
+
+      {(filters.length === 0 || filters.length > 2) ? 
+          (<Invoices invoices={data} message={`There are ${data.length} invoices`} changedFilter={changedFilter} />)
+        :
+          (<Invoices invoices={get_filtered_data()} message={`There are ${get_filtered_data().length} ${filters.join(' and ')} invoices`} changedFilter={changedFilter} />)
+      }
     </div>
   );
 }
