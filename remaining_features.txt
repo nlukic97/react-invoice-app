@@ -1,0 +1,15 @@
+features to design:
+
+- display of the single page part (design and toggle buttons)
+
+-form component for 
+	-- inserting
+	-- editing
+	++ validation errors
+
+	** challengingParts: calendar, conditional display
+
+- dark theme (update colors to be variables)
+- confirm deletion modal
+
+- design the display of the filter modal
