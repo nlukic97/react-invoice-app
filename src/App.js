@@ -119,11 +119,3 @@ function App() {
 }
 
 export default App;
-
-
-// {(filters.length === 0 || filters.length > num_of_filters - 1) ? 
-//   (<Invoices invoices={data} message={`There are ${data.length} invoices`} changedFilter={changedFilter} />)
-// :
-//   (<Invoices invoices={get_filtered_data()} message={`There are ${get_filtered_data_msg(get_filtered_data())} invoices`} changedFilter={changedFilter} />)
-// }
-

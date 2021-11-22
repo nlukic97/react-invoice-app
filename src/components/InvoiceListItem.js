@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-const Invoice = ({data}) => {
+const InvoiceListItem = ({data}) => {
     return (
         <Link to={`invoice/${data.id}`} className="_invoice_list_item">
             <div className="left">
@@ -20,7 +20,6 @@ const Invoice = ({data}) => {
                 <div className={`__invoice_status ${data.status}`}>
                     <div className='__invoice_status_circle'></div>
                     <span>{data.status}</span>
-
                 </div>
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10"><path d="M1 1l4 4-4 4" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
@@ -29,4 +28,4 @@ const Invoice = ({data}) => {
     )
 }
 
-export default Invoice
+export default InvoiceListItem

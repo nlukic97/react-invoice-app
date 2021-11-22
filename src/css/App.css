@@ -71,9 +71,33 @@ button.btn {
   border-radius: 24px;
   border: none;
   font-family: "Spartan", sans-serif;
+  padding: 15px 24px;
+}
+button.btn.purple {
+  background-color: #7C5DFA;
+  color: #fff;
+}
+button.btn.purple:hover {
+  background-color: #9277FF;
+  cursor: pointer;
+}
+button.btn.red {
+  background-color: #EC5757;
+  color: #fff;
+}
+button.btn.red:hover {
+  background-color: #FF9797;
+  cursor: pointer;
+}
+button.btn.gray {
+  background-color: #F9FAFE;
+  color: #7E88C3;
+}
+button.btn.gray:hover {
+  background-color: #DFE3FA;
+  cursor: pointer;
 }
 button.btn.add-invoice-btn {
-  background-color: #7C5DFA;
   padding: 8px 16px 8px 8px;
   margin-left: 40px;
   color: #fff;
@@ -89,10 +113,6 @@ button.btn.add-invoice-btn .white-circle {
   align-items: center;
   justify-content: center;
   margin-right: 16px;
-}
-button.btn.add-invoice-btn:hover {
-  background-color: #9277FF;
-  cursor: pointer;
 }
 
 .banner {
@@ -213,44 +233,6 @@ html.dark-theme .toggle-theme-icon {
 ._invoice_list_item .right .__amount {
   margin-right: 40px;
 }
-._invoice_list_item .right .__invoice_status {
-  width: 104px;
-  text-align: center;
-  line-height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  margin-right: 20px;
-  font-weight: 700;
-}
-._invoice_list_item .right .__invoice_status.paid {
-  color: #33D69F;
-  background-color: #33d6a011;
-}
-._invoice_list_item .right .__invoice_status.paid .__invoice_status_circle {
-  background-color: #33D69F;
-}
-._invoice_list_item .right .__invoice_status.pending {
-  color: #FF8F00;
-  background-color: #ff910015;
-}
-._invoice_list_item .right .__invoice_status.pending .__invoice_status_circle {
-  background-color: #FF8F00;
-}
-._invoice_list_item .right .__invoice_status.draft {
-  color: #373B53;
-  background-color: #373b5313;
-}
-._invoice_list_item .right .__invoice_status.draft .__invoice_status_circle {
-  background-color: #373B53;
-}
-._invoice_list_item .right .__invoice_status .__invoice_status_circle {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
 
 .invoice_actions {
   display: flex;
@@ -270,6 +252,45 @@ html.dark-theme .toggle-theme-icon {
 }
 .invoice_actions .__action_contols .___filter_container h4 {
   margin-right: 16px;
+}
+
+.__invoice_status {
+  width: 104px;
+  text-align: center;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  margin-right: 20px;
+  font-weight: 700;
+}
+.__invoice_status.paid {
+  color: #33D69F;
+  background-color: #33d6a011;
+}
+.__invoice_status.paid .__invoice_status_circle {
+  background-color: #33D69F;
+}
+.__invoice_status.pending {
+  color: #FF8F00;
+  background-color: #ff910015;
+}
+.__invoice_status.pending .__invoice_status_circle {
+  background-color: #FF8F00;
+}
+.__invoice_status.draft {
+  color: #373B53;
+  background-color: #373b5313;
+}
+.__invoice_status.draft .__invoice_status_circle {
+  background-color: #373B53;
+}
+.__invoice_status .__invoice_status_circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -3,9 +3,38 @@ button {
         border-radius: 24px;
         border: none;
         font-family: 'Spartan',sans-serif;
+        padding: 15px 24px;
 
-        &.add-invoice-btn {
+        // purple color
+        &.purple {
             background-color: #7C5DFA;
+            color: #fff;
+            &:hover {
+                background-color: #9277FF;
+                cursor: pointer;
+            }
+        }
+        // red color
+        &.red {
+            background-color: #EC5757;
+            color: #fff;
+            &:hover {
+                background-color: #FF9797;
+                cursor: pointer;
+            }
+        }
+        // gray color
+        &.gray {
+            background-color: #F9FAFE;
+            color: #7E88C3;
+            &:hover {
+                background-color: #DFE3FA;
+                cursor: pointer;
+            }
+        }
+
+        // button for adding the invoice (custom)
+        &.add-invoice-btn {
             padding: 8px 16px 8px 8px;
             margin-left: 40px;
             color: #fff;
@@ -21,11 +50,6 @@ button {
                 align-items: center;
                 justify-content: center;
                 margin-right: 16px;
-            }
-
-            &:hover {
-                background-color: #9277FF;
-                cursor: pointer;
             }
         }
     }
