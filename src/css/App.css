@@ -164,6 +164,8 @@ html.dark-theme .toggle-theme-icon {
 }
 
 ._invoice_list_item {
+  text-decoration: none;
+  color: inherit;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -172,6 +174,9 @@ html.dark-theme .toggle-theme-icon {
   border-radius: 8px;
   box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
   border: 1px solid transparent;
+}
+._invoice_list_item:visited, ._invoice_list_item:hover, ._invoice_list_item a:active {
+  color: inherit;
 }
 ._invoice_list_item:not(:first-child), ._invoice_list_item:not(:last-child) {
   margin: 16px 0;
@@ -190,6 +195,9 @@ html.dark-theme .toggle-theme-icon {
 }
 ._invoice_list_item .left .__id, ._invoice_list_item .left .__due_date {
   margin-right: 45px;
+}
+._invoice_list_item .left .___id {
+  color: #0C0E16 !important;
 }
 ._invoice_list_item .left .__client_name {
   color: #858BB2;

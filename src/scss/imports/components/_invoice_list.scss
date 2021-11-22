@@ -1,8 +1,12 @@
-// .invoice_items_list {
-
-    
+// .invoice_items_list {    
 
     ._invoice_list_item {
+        text-decoration: none;
+        color: inherit;
+
+        &:visited, &:hover, a:active {
+            color: inherit;
+        }
 
         &:not(:first-child), &:not(:last-child) {
             margin: 16px 0;
@@ -34,6 +38,10 @@
 
             .__id, .__due_date {
                 margin-right: 45px;
+            }
+
+            .___id {
+                color: #0C0E16!important;
             }
 
             .__client_name {

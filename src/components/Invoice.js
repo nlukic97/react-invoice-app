@@ -1,13 +1,8 @@
+import {Link} from "react-router-dom";
+
 const Invoice = ({data}) => {
-    
-    function clickedOnInvoice(){
-        console.log(data)
-        // do something which will open the modal
-    }
-
-
     return (
-        <div className="_invoice_list_item" onClick={clickedOnInvoice}>
+        <Link to={`invoice/${data.id}`} className="_invoice_list_item">
             <div className="left">
                 <h4 className="__id"><span className="color-grayblue">#</span>{data.id}</h4>
 
@@ -30,7 +25,7 @@ const Invoice = ({data}) => {
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10"><path d="M1 1l4 4-4 4" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
             </div>
-        </div>
+        </Link>
     )
 }
 
