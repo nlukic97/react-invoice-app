@@ -1,7 +1,9 @@
-import {Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router"
 
-const InvoicePage = ({invoices}) => {
+const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
+    let navigate = useNavigate()
+
     let {id} = useParams()
     let invoice = invoices.find(item=> item.id === id)
     console.log(invoice);
@@ -18,9 +20,21 @@ const InvoicePage = ({invoices}) => {
                     <span>{invoice.status}</span>
                 </div>
 
-                <button className="btn gray"><h4>Edit</h4></button>
-                <button className="btn red"><h4>Delete</h4></button>
-                <button className="btn purple"><h4>Mark as Paid</h4></button>
+                <button className="btn gray">
+                    <h4>Edit</h4>
+                </button>
+
+                <button className="btn red" onClick={()=>{
+                    //delete invoice and navigate back to home page
+                    deleteInvoice(invoice.id)
+                    navigate('/')
+                }}>
+                    <h4>Delete</h4>
+                </button>
+
+                <button className="btn purple" onClick={()=>{
+                    markAsPaid(invoice.id)
+                }}><h4>Mark as Paid</h4></button>
             </div>
         </div>
     )

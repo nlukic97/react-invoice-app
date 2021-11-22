@@ -1,6 +1,6 @@
 import './css/App.css';
 import {useState} from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import InvoicePage from './components/InvoicePage';
 
 // data
@@ -13,7 +13,6 @@ import Invoices from './components/Invoices';
 function App() {
 
   // data imported from the json file
-
   let localStorageData = JSON.parse(localStorage.getItem('invoice-data'))
   let data_to_use;
 
@@ -24,7 +23,7 @@ function App() {
     localStorage.setItem('invoice-data',JSON.stringify(data_to_use))
   }
   
-  const [data] = useState(data_to_use)
+  const [data, setData] = useState(data_to_use)
   const [filters, setFilters] = useState([]) //paid, pending, draft
 
   /** 
@@ -102,6 +101,19 @@ function App() {
     }
   }
 
+  // deletes an invoice from the InvoicePage component
+  function deleteInvoice(invoiceId){
+    let newData = data.filter(item => item.id !== invoiceId)
+    setData(newData)
+    //save to local storage after this, maybe with 'use effect'?
+  }
+
+  // marks an invoice as paid from the single invoice page (InvoicePage.js)
+  function markAsPaid(invoiceId){
+    setData(data.map(invoice=> (invoice.id === invoiceId && invoice.status !== 'paid') ? {...invoice, status:'paid'} : invoice))
+    //save to local storage after this, maybe with 'use effect'?
+  }
+
 
   return (
     <div className='App'>
@@ -110,7 +122,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={renderInvoices()}/>
-            <Route path="/invoice/:id" element={<InvoicePage invoices={data} />} />
+            <Route path="/invoice/:id" element={<InvoicePage invoices={data} deleteInvoice={deleteInvoice} markAsPaid={markAsPaid} />} />
           </Routes>
         </BrowserRouter>
 
