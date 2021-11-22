@@ -3,10 +3,10 @@
 import Invoice from './Invoice';
 import InvoiceActions from './InvoiceActions';
 
-const Invoices = ({invoices,message, changedFilter}) => {    
+const Invoices = ({invoices,message, changedFilter, checkedBoxes}) => {    
     return (
         <div>
-            <InvoiceActions message={message} changedFilter={changedFilter} />
+            <InvoiceActions message={message} changedFilter={changedFilter} checkedBoxes={checkedBoxes}/>
 
             <div className="invoice_items_list">
                 {/* {invoices.map(invoice=> <Invoice data={invoice} key={invoice.id} className="invoices" /> )} */}

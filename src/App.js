@@ -96,9 +96,9 @@ function App() {
   // method to supply the '/' route with the correct invoice list page depending on the status of the filter
   function renderInvoices(){
     if(filters.length === 0 || filters.length > num_of_filters - 1){
-      return (<Invoices invoices={data} message={`There are ${data.length} invoices`} changedFilter={changedFilter} />)
+      return (<Invoices invoices={data} message={`There are ${data.length} invoices`} changedFilter={changedFilter} checkedBoxes={filters} />)
     } else {
-      return (<Invoices invoices={get_filtered_data()} message={`There are ${get_filtered_data_msg(get_filtered_data())} invoices`} changedFilter={changedFilter} />)
+      return (<Invoices invoices={get_filtered_data()} message={`There are ${get_filtered_data_msg(get_filtered_data())} invoices`} changedFilter={changedFilter} checkedBoxes={filters} />)
     }
   }
 
