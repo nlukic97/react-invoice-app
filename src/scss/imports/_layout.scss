@@ -19,3 +19,51 @@ html.dark-theme body {
     margin: 0 auto;
     // border: 1px solid red;
 }
+
+
+// Single page view
+.single_page_invoice  {
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow:0 10px 10px -10px rgb(72, 84, 159,.1);
+
+        .status-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-basis: 50%;
+            box-sizing: border-box;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            
+            .status_label {
+                margin-right: 16px;
+                color: #858BB2;
+                padding: 15px 0px; // this is so that both the cards (status-container and button-container) are the same height
+            }
+        }
+        
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-basis: 50%;
+            box-sizing: border-box;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .data-container {
+            flex-basis: 100%;
+            margin-top: 16px;
+
+            .id_address_container {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
