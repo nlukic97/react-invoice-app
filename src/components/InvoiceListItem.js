@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 const InvoiceListItem = ({data}) => {
     return (
-        <Link to={`invoice/${data.id}`} className="_invoice_list_item">
+        <Link to={`invoice/${data.id}`} className="_invoice_list_item card">
             <div className="left">
                 <h4 className="__id"><span className="color-grayblue">#</span>{data.id}</h4>
 
