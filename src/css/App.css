@@ -330,6 +330,7 @@ html.dark-theme .toggle-theme-icon {
 .invoice_actions .__action_contols {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .invoice_actions .__action_contols .___filter_container {
   display: flex;
@@ -340,6 +341,43 @@ html.dark-theme .toggle-theme-icon {
 }
 .invoice_actions .__action_contols .___filter_container h4 {
   margin-right: 16px;
+}
+.invoice_actions .__action_contols .filter-form {
+  position: absolute;
+  top: 100%;
+  left: -37px;
+  width: 192px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+}
+.invoice_actions .__action_contols .filter-form .form-group {
+  display: flex;
+  align-items: flex-start;
+}
+.invoice_actions .__action_contols .filter-form .form-group:not(:first-child) {
+  margin-top: 16px;
+}
+.invoice_actions .__action_contols .filter-form .form-group input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-right: 14px;
+  background-color: #DFE3FA;
+  border-radius: 2px;
+}
+.invoice_actions .__action_contols .filter-form .form-group input:hover {
+  border: 1px solid #7C5DFA;
+  cursor: pointer;
+}
+.invoice_actions .__action_contols .filter-form .form-group input:checked {
+  background: url("../images/icon-check.svg") no-repeat center center/cover;
+  background-size: 10px;
+  background-color: #7C5DFA;
+}
+.invoice_actions .__action_contols .filter-form .form-group label:hover {
+  cursor: pointer;
 }
 
 .__invoice_status {

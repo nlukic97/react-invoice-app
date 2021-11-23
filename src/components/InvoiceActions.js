@@ -19,16 +19,16 @@ const InvoiceActions = ({message, changedFilter, checkedBoxes}) => {
             <div className="__action_contols">
 
                 <div className="___filter_container" 
-                    onMouseEnter={()=> setIsHover(true)} 
-                    onMouseLeave={()=>setIsHover(false)}
-                    // onClick={()=>setIsHover(!isHover)} //this to be used for render in different screen
+                    // onMouseEnter={()=> setIsHover(true)} 
+                    // onMouseLeave={()=>setIsHover(false)}
+                    onClick={()=>setIsHover(!isHover)} //this to be used for render in different screen
                 >
                     <h4>Filter by status</h4>
-                    <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
+                    <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg" style={(isHover === true) ? {transform:'rotate(180deg)'} : {}}><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
                     
                     {/* style this */}
-                    {(isHover === true) ? <FilterOptions changedFilter={changedFilter} checkedBoxes={checkedBoxes}/>:null}
                 </div>
+                    {(isHover === true) ? <FilterOptions changedFilter={changedFilter} checkedBoxes={checkedBoxes}/>:null}
 
 
                 <button className="btn add-invoice-btn purple" onClick={openModal}>

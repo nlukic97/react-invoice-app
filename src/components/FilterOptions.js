@@ -21,7 +21,7 @@ const FilterOptions = ({changedFilter, checkedBoxes}) => {
     }
 
     return (
-        <div>
+        <div className='filter-form'>
             <div className="form-group">
                 <input onChange={checkboxChanged} type="checkbox" name="draft" id="draft"  checked={ IsInputChecked("draft") }/>
                 <label htmlFor="draft">Draft</label>

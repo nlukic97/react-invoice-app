@@ -6,6 +6,7 @@
     .__action_contols {
         display: flex;
         align-items: center;
+        position: relative;
 
         .___filter_container {
             display: flex;
@@ -17,6 +18,52 @@
             
             h4 {
                 margin-right: 16px;
+            }
+
+        }
+        .filter-form {
+            position: absolute;
+            top: 100%;
+            left: -37px;
+            width: 192px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow:0 10px 10px -10px rgb(72, 84, 159,.1);
+
+            .form-group {
+                &:not(:first-child) {
+                    margin-top: 16px;
+                }
+                display: flex;
+                align-items: flex-start;
+
+                input {
+                    appearance: none;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 14px;
+                    background-color: #DFE3FA;
+                    border-radius: 2px;
+
+                    &:hover {
+                        border: 1px solid #7C5DFA;
+                        cursor: pointer;
+                    }
+
+                    &:checked {
+                        background: url('../images/icon-check.svg') no-repeat center center/cover;
+                        background-size:10px;
+                        background-color: #7C5DFA;
+                    }
+                }
+
+                label {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
             }
         }
     }
