@@ -1,5 +1,6 @@
 import {useEffect} from 'react';
 import ThemeButton from './ThemeButton';
+import Avatar from '../images/image-avatar.jpg'
 
 const Sidebar = () => {
     let options = ['light-theme', 'dark-theme']
@@ -40,7 +41,7 @@ const Sidebar = () => {
             <div className="bottom-box">
                 <ThemeButton toggleTheme={toggleTheme} />
 
-                <img className="avatar" src="./assets/image-avatar.jpg" alt="avatar" />
+                <img className="avatar" src={Avatar} alt="avatar" />
             </div>            
         </div>
     )
