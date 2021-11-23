@@ -105,8 +105,32 @@ html.dark-theme body {
 .single_page_invoice .flex-container .data-container .second_line {
   display: flex;
 }
-.single_page_invoice .flex-container .data-container .second_line .dates, .single_page_invoice .flex-container .data-container .second_line .receiver_address, .single_page_invoice .flex-container .data-container .second_line .email {
+.single_page_invoice .flex-container .data-container .second_line .dates, .single_page_invoice .flex-container .data-container .second_line .receiver_address, .single_page_invoice .flex-container .data-container .second_line .client_email {
   flex: 1;
+}
+.single_page_invoice .flex-container .data-container .invoice-items-card {
+  background-color: #F9FAFE;
+  border-radius: 8px;
+  padding: 32px;
+}
+.single_page_invoice .flex-container .data-container .invoice-items-card .items-container {
+  display: flex;
+  justify-content: space-between;
+}
+.single_page_invoice .flex-container .data-container .invoice-items-card .items-container .left, .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right {
+  flex: 1;
+}
+.single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right {
+  display: flex;
+}
+.single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right .quantity, .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right .price, .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right .total {
+  flex: 1;
+}
+.single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right .quantity {
+  text-align: left;
+}
+.single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right .price, .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right .total {
+  text-align: right;
 }
 
 .color-grayblue {

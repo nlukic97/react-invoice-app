@@ -75,11 +75,40 @@ html.dark-theme body {
             .second_line {
                 display: flex;
 
-                .dates, .receiver_address, .email {
+                .dates, .receiver_address, .client_email {
                     flex: 1;
                 }
+            }
 
-                
+            // used for both the label and the data of the invoice items
+            .invoice-items-card {
+                background-color: #F9FAFE;
+                border-radius: 8px;
+                padding: 32px;
+
+                .items-container {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .left, .right {
+                        flex: 1;
+                    }
+
+                    .right {
+                        display: flex;
+                        .quantity, .price, .total {
+                            flex: 1;
+                        }
+
+                        .quantity {
+                            text-align: left;
+                        }
+
+                        .price, .total {
+                            text-align: right;
+                        }
+                    }
+                }
             }
         }
     }
