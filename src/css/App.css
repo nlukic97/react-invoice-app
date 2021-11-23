@@ -111,11 +111,11 @@ html.dark-theme body {
 .single_page_invoice .flex-container .data-container .invoice-items-card {
   background-color: #F9FAFE;
   border-radius: 8px;
-  padding: 32px;
 }
 .single_page_invoice .flex-container .data-container .invoice-items-card .items-container {
   display: flex;
   justify-content: space-between;
+  padding: 15px 32px;
 }
 .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .left, .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right {
   flex: 1;
@@ -131,6 +131,15 @@ html.dark-theme body {
 }
 .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right .price, .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right .total {
   text-align: right;
+}
+.single_page_invoice .flex-container .data-container .invoice-items-card .amount-due {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  background-color: #373B53;
+  color: #FFFFFF;
+  border-radius: 0 0 8px 8px;
 }
 
 .color-grayblue {

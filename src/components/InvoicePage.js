@@ -117,6 +117,7 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
                                 </div>
                             </div>
 
+                            {/* Rendering all items of the invoice */}
                             {invoice.items.map((item,index)=> {
                                 return (
                                 <div className="items-container" key={index}>
@@ -126,12 +127,18 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
 
                                     <div className="right">
                                         <h4 className="quantity">{item.quantity}</h4>
-                                        <h4 className="price">{item.price}</h4>
-                                        <h4 className="total">{item.total}</h4>
+                                        <h4 className="price">&#163; {item.price}</h4>
+                                        <h4 className="total">&#163; {item.total}</h4>
                                     </div>
                                 </div>
                                 )
                             })}
+
+                            {/* Displaying the total due amount for the invoice */}
+                            <div className="amount-due">
+                                <span className='body-1'>Amount due</span>
+                                <span>&#163; {invoice.total}</span>
+                            </div>
 
                         </div>
 

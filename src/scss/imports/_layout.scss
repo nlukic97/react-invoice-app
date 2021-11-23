@@ -84,11 +84,11 @@ html.dark-theme body {
             .invoice-items-card {
                 background-color: #F9FAFE;
                 border-radius: 8px;
-                padding: 32px;
 
                 .items-container {
                     display: flex;
                     justify-content: space-between;
+                    padding: 15px 32px;
 
                     .left, .right {
                         flex: 1;
@@ -108,6 +108,16 @@ html.dark-theme body {
                             text-align: right;
                         }
                     }
+                }
+
+                .amount-due {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 24px 32px;
+                    background-color: #373B53;
+                    color: #FFFFFF;
+                    border-radius: 0 0 8px 8px;
                 }
             }
         }
