@@ -1,6 +1,9 @@
 import FilterOptions from "./FilterOptions";
+import {useState} from "react";
 
 const InvoiceActions = ({message, changedFilter, checkedBoxes}) => {
+    // used to render or hide the <FilterOptions> component
+    const [isHover, setIsHover] = useState(false)
 
     function openModal(){
         console.log('open modal');
@@ -14,12 +17,18 @@ const InvoiceActions = ({message, changedFilter, checkedBoxes}) => {
             </div>
 
             <div className="__action_contols">
-                <div className="___filter_container">
+
+                <div className="___filter_container" 
+                    onMouseEnter={()=> setIsHover(true)} 
+                    onMouseLeave={()=>setIsHover(false)}
+                >
                     <h4>Filter by status</h4>
                     <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
+                    
+                    {/* style this */}
+                    {(isHover === true) ? <FilterOptions changedFilter={changedFilter} checkedBoxes={checkedBoxes}/>:null}
                 </div>
 
-            <FilterOptions changedFilter={changedFilter} checkedBoxes={checkedBoxes}/>
 
                 <button className="btn add-invoice-btn purple" onClick={openModal}>
                     <div className="white-circle">
