@@ -1,5 +1,7 @@
 import {Link} from "react-router-dom";
 
+import {convertDate} from "../methods/HelperMethods"; //import of custom helper method (used in InvoiceListItem.js and InvoicePage.js)
+
 const InvoiceListItem = ({data}) => {
     return (
         <Link to={`invoice/${data.id}`} className="_invoice_list_item card">
@@ -8,7 +10,7 @@ const InvoiceListItem = ({data}) => {
 
                 <h4 className="__due_date">
                     <span className="color-gray-dark">Due </span>
-                    <span className="color-grayblue">{data.paymentDue}</span>
+                    <span className="color-grayblue">{convertDate(data.paymentDue)}</span>
                 </h4>
 
                 <h4 className="__client_name">{data.clientName}</h4>

@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router"
 
+import {convertDate} from "../methods/HelperMethods"; //import of custom helper method (used in InvoiceListItem.js and InvoicePage.js)
+
 const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
 
     let navigate = useNavigate()
@@ -9,10 +11,6 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
 
     console.log(invoice);
     
-    function convertDate(stringDate){
-        let date = new Date(stringDate)
-        return `${date.getDay()} ${date.toLocaleString('default',{month:'short'})} ${date.getFullYear()}`
-    }
 
     return (
         <div className="single_page_invoice">
@@ -59,11 +57,11 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
 
                         <div className="first_line">
                             <div className="id_description_container">
-                                <div className="id">#{invoice.id}</div>
-                                <div className="description">{invoice.description}</div>
+                                <h3 className="id"><span className="color-grayblue">#</span>{invoice.id}</h3>
+                                <div className="description body-1 color-grayblue">{invoice.description}</div>
                             </div>
 
-                            <div className="sender_address_container">
+                            <div className="sender_address_container body-2 color-grayblue">
                                 <div><span className="street">{invoice.senderAddress.street}</span></div>
                                 <div><span className="city">{invoice.senderAddress.city}</span></div>
                                 <div><span className="postCode">{invoice.senderAddress.postCode}</span></div>
@@ -74,21 +72,21 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
                         <div className="second_line">
                             <div className="dates">
                                 <div className="date-item">
-                                    <span className="body-1">Invoice Date</span>
-                                    <h4>{convertDate(invoice.createdAt)}</h4>
+                                    <span className="body-1 color-grayblue">Invoice Date</span>
+                                    <h3 className="sp-invoice-text">{convertDate(invoice.createdAt)}</h3>
                                 </div>
 
                                 <div className="date-item">
-                                    <span className="body-1">Payment Due</span>
-                                    <h4>{convertDate(invoice.paymentDue)}</h4>
+                                    <span className="body-1 color-grayblue">Payment Due</span>
+                                    <h3 className="sp-invoice-text">{convertDate(invoice.paymentDue)}</h3>
                                 </div>
                             </div>
 
                             <div className="receiver_address">
-                                <span className="body-1">Bill to</span>
-                                <h4>{invoice.clientName}</h4>
+                                <span className="body-1 color-grayblue">Bill to</span>
+                                <h3 className="sp-invoice-text">{invoice.clientName}</h3>
 
-                                <div className="receiver_address_container">
+                                <div className="receiver_address_container body-2 color-grayblue">
                                     <div><span className="street">{invoice.clientAddress.street}</span></div>
                                     <div><span className="city">{invoice.clientAddress.city}</span></div>
                                     <div><span className="postCode">{invoice.clientAddress.postCode}</span></div>
@@ -97,23 +95,23 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
                             </div>
 
                             <div className="client_email">
-                                <span className="body-1">Sent to</span>
-                                <div><span>{invoice.clientEmail}</span></div>
+                                <span className="body-1 color-grayblue">Sent to</span>
+                                <h3 className="sp-invoice-text">{invoice.clientEmail}</h3>
                             </div>
                         </div>
 
                         <div className="invoice-items-card">
 
                             {/* labels */}
-                            <div className="items-container">
-                                <div className="left body-1">
+                            <div className="items-container color-grayblue sp-labels">
+                                <div className="left">
                                     <span>Item Name</span>
                                 </div>
 
                                 <div className="right">
-                                    <div className="body-1 quantity">QTY.</div>
-                                    <div className="body-1 price">Price</div>
-                                    <div className="body-1 total">Total</div>
+                                    <div className="quantity">QTY.</div>
+                                    <div className="price">Price</div>
+                                    <div className="total">Total</div>
                                 </div>
                             </div>
 
@@ -126,9 +124,9 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
                                     </div>
 
                                     <div className="right">
-                                        <h4 className="quantity">{item.quantity}</h4>
-                                        <h4 className="price">&#163; {item.price}</h4>
-                                        <h4 className="total">&#163; {item.total}</h4>
+                                        <h4 className="quantity color-grayblue">{item.quantity}</h4>
+                                        <h4 className="price color-grayblue">&#163; {item.price.toFixed(2)}</h4>
+                                        <h4 className="total">&#163; {item.total.toFixed(2)}</h4>
                                     </div>
                                 </div>
                                 )
@@ -137,7 +135,7 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
                             {/* Displaying the total due amount for the invoice */}
                             <div className="amount-due">
                                 <span className='body-1'>Amount due</span>
-                                <span>&#163; {invoice.total}</span>
+                                <span className="sp-invoice-total">&#163; {invoice.total}</span>
                             </div>
 
                         </div>

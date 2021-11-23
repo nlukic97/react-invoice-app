@@ -59,6 +59,8 @@ html.dark-theme body {
         .data-container {
             flex-basis: 100%;
             margin-top: 16px;
+            padding: 46px;
+            box-shadow:0 10px 10px -10px rgb(72, 84, 159,.1);
 
             .first_line {
                 display: flex;

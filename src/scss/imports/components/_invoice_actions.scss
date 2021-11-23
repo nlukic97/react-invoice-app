@@ -40,21 +40,41 @@
 
                 input {
                     appearance: none;
-                    width: 16px;
-                    height: 16px;
+                    width: 15px;
+                    height: 15px;
                     margin-right: 14px;
                     background-color: #DFE3FA;
                     border-radius: 2px;
+                    position: relative;
+                    border: 1px solid transparent;
+                    box-sizing: content-box;
 
+                    // added this underneath because a network throttle may delay the display of the check image (if we simply add is as a background on the input's :checked state).
+                    // By using ::after to pre-load the image, and toggle its opacity upon checked, the previously mentioned issue is avoided.
+                    &::after {
+                        content:'';
+                        width: 15px;
+                        height: 15px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: url('../images/icon-check.svg') no-repeat center center/cover;
+                        background-size:12px;
+                        opacity: 0;
+                    }
+                    
                     &:hover {
                         border: 1px solid #7C5DFA;
                         cursor: pointer;
                     }
-
+                    
                     &:checked {
-                        background: url('../images/icon-check.svg') no-repeat center center/cover;
-                        background-size:10px;
+                        // background: url('../images/icon-check.svg') no-repeat center center/cover; //replaced with ::after
                         background-color: #7C5DFA;
+
+                        &:after {
+                            opacity: 1; //when checked, the opacity of the check image is 1
+                        }                        
                     }
                 }
 
