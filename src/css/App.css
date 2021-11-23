@@ -117,6 +117,9 @@ html.dark-theme body {
   justify-content: space-between;
   padding: 15px 32px;
 }
+.single_page_invoice .flex-container .data-container .invoice-items-card .items-container:first-child {
+  padding: 32px 32px 15px 32px;
+}
 .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .left, .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right {
   flex: 1;
 }

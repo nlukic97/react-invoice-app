@@ -90,6 +90,10 @@ html.dark-theme body {
                     justify-content: space-between;
                     padding: 15px 32px;
 
+                    &:first-child {
+                        padding: 32px 32px 15px 32px;
+                    }
+
                     .left, .right {
                         flex: 1;
                     }
