@@ -8,6 +8,11 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
     let invoice = invoices.find(item=> item.id === id)
 
     console.log(invoice);
+    
+    function convertDate(stringDate){
+        let date = new Date(stringDate)
+        return `${date.getDay()} ${date.toLocaleString('default',{month:'short'})} ${date.getFullYear()}`
+    }
 
     return (
         <div className="single_page_invoice">
@@ -50,19 +55,52 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
                 
                 {/* 3. Invoice data */}
                 <div className="data-container card">
-                    
-                    <div className="id_address_container">
+
+                    <div className="first_line">
                         <div className="id_description_container">
-                            <span className="id">#{invoice.id}</span>
-                            <span className="description">{invoice.description}</span>
+                            <div className="id">#{invoice.id}</div>
+                            <div className="description">{invoice.description}</div>
+                        </div>
+
+                        <div className="sender_address_container">
+                            <div><span className="street">{invoice.senderAddress.street}</span></div>
+                            <div><span className="city">{invoice.senderAddress.city}</span></div>
+                            <div><span className="postCode">{invoice.senderAddress.postCode}</span></div>
+                            <div><span className="country">{invoice.senderAddress.country}</span></div>
                         </div>
                     </div>
-                    <div className="sender_address_container">
-                        <span className="street">{invoice.senderAddress.street}</span>
-                        <span className="city">{invoice.senderAddress.city}</span>
-                        <span className="postCode">{invoice.senderAddress.postCode}</span>
-                        <span className="country">{invoice.senderAddress.country}</span>
+
+                    <div className="second_line">
+                        <div className="dates">
+                            <div className="date-item">
+                                <span className="body-1">Invoice Date</span>
+                                <h4>{convertDate(invoice.createdAt)}</h4>
+                            </div>
+
+                            <div className="date-item">
+                                <span className="body-1">Payment Due</span>
+                                <h4>{convertDate(invoice.paymentDue)}</h4>
+                            </div>
+                        </div>
+
+                        <div className="receiver_address">
+                            <span className="body-1">Bill to</span>
+                            <h4>{invoice.clientName}</h4>
+
+                            <div className="receiver_address_container">
+                                <div><span className="street">{invoice.clientAddress.street}</span></div>
+                                <div><span className="city">{invoice.clientAddress.city}</span></div>
+                                <div><span className="postCode">{invoice.clientAddress.postCode}</span></div>
+                                <div><span className="country">{invoice.clientAddress.country}</span></div>
+                            </div>
+                        </div>
+
+                        <div className="email">
+                            <span className="body-1">Sent to</span>
+                            <div><span>{invoice.clientEmail}</span></div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

@@ -60,9 +60,26 @@ html.dark-theme body {
             flex-basis: 100%;
             margin-top: 16px;
 
-            .id_address_container {
+            .first_line {
                 display: flex;
                 justify-content: space-between;
+
+
+                .sender_address_container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                }
+            }
+
+            .second_line {
+                display: flex;
+
+                .dates, .receiver_address, .email {
+                    flex: 1;
+                }
+
+                
             }
         }
     }
