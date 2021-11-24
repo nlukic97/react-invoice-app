@@ -52,5 +52,18 @@ button {
                 margin-right: 16px;
             }
         }
+
+        &.add-item-btn {
+            box-sizing: border-box;
+            width: 100%;
+            font-weight: 700;
+            color: #7E88C3;
+            background-color: #F9FAFE;
+
+            &:hover {
+                background-color: #DFE3FA;
+                cursor: pointer;
+            }
+        }
     }
 }

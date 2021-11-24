@@ -1,21 +1,32 @@
 .form {
     border: 1px solid red;
+    border-radius: 8px;
+    width: 615px;
+    box-sizing: border-box;
+    padding: 58px;
+
+    .purple-label {
+        margin-top: 48px;
+    }
 
     .form-group {
-        padding: 16px 58px;
+        margin-top: 24px;
         input {
-            display: inline-block;
-            box-sizing: border-box;
-            width: 100%;
-            border: 1px solid #DFE3FA;
-            color: #0C0E16;
-            font-weight: 700;
             font-size: 12px;
             line-height: 15px;
             letter-spacing: -0.25px;
-            padding: 16px 19px;
             font-family: 'Spartan',sans-serif;
+        }
+        
+        select, input {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 16px 19px;
             border-radius: 4px;
+            border: 1px solid #DFE3FA;
+            color: #0C0E16;
+            font-weight: 700;
 
             &:hover,&:focus {
                 outline: 1px solid #9277FF;
@@ -30,5 +41,56 @@
     .city-postcode-country {
         display: flex;
         justify-content: space-between;
+    }
+
+    .dates {
+        display: flex;
+        justify-content: space-between;
+
+        .form-group {
+            width:240px;
+        }
+    }
+
+    .items-container {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+            color: #0C0E16;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 15px;
+            letter-spacing: -0.25px;
+            font-family: 'Spartan',sans-serif;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 16px 19px;
+            border-radius: 4px;
+            border: 1px solid #DFE3FA;
+
+            &:hover,&:focus {
+                outline: 1px solid #9277FF;
+            }
+        
+        }
+
+        .name ,#name {
+            width: 214px;
+        }
+
+        .quantity, #quantity {
+            width: 48px;
+        }
+
+        .price, #price {
+            width:100px;
+        }
+
+        .total, #total {
+            width: 48px;
+        }
+
     }
 }

@@ -4,6 +4,8 @@ const Form = () => {
     return (
         <form className="form">
             
+            <h4 className="color-purple-dark">Bill from</h4>
+            
             {/* sender street address */}
             <div className="form-group">
                 <label className="h4 color-grayblue" htmlFor="senderStreet">Street Address</label>
@@ -27,6 +29,9 @@ const Form = () => {
                     <input type="text" name="senderCountry" id="senderCountry" />
                 </div>
             </div>
+
+
+            <h4 className="purple-label color-purple-dark">Bill to</h4>
 
             {/* client name */}
             <div className="form-group">
@@ -77,39 +82,34 @@ const Form = () => {
 
             <div className="form-group">
                 <label className="h4 color-grayblue" htmlFor="description">Project Description</label>
-                <input type="text" name="description" id="description" value={new Date().toLocaleDateString('en-CA')} onChange={(e)=> {}} />
+                <input type="text" name="description" id="description" />
             </div>
 
             {/* labels */}
             <div className="items-container color-grayblue sp-labels">
-                <div className="left">
-                    <span>Item Name</span>
-                </div>
-
-                <div className="right">
-                    <div className="quantity">QTY.</div>
-                    <div className="price">Price</div>
-                    <div className="total">Total</div>
-                </div>
+                <div className="name">Item Name</div>
+                <div className="quantity">QTY.</div>
+                <div className="price">Price</div>
+                <div className="total">Total</div>
+                <div className="phantom-div"></div>
             </div>
 
     
             <div className="items-container">
-                <div className="left">
-                    <input type="number" name="name" id="name" />
-                </div>
-
-                <div className="right">
+                    <input type="text" name="name" id="name" />
                     <input type="number" name="quantity" id="quantity" />
                     <input type="number" name="price" id="price" />
                     <input type="number" name="total" id="total" />
+                    
                     <button>
                         <svg width="13" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M11.583 3.556v10.666c0 .982-.795 1.778-1.777 1.778H2.694a1.777 1.777 0 01-1.777-1.778V3.556h10.666zM8.473 0l.888.889h3.111v1.778H.028V.889h3.11L4.029 0h4.444z" fill="#888EB0" fillRule="nonzero"/></svg>
                     </button>
-                </div>
+
             </div>
 
-            <button>Add new item</button>
+            <div className="button-container">
+                <button className="btn add-item-btn">+ Add new item</button>
+            </div>
                 
         </form>
     )

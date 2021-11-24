@@ -176,10 +176,20 @@ html.dark-theme body {
   color: #888EB0;
 }
 
+.color-purple-dark {
+  color: #7C5DFA;
+}
+
 .card {
   padding: 16px 30px;
   background-color: #fff;
   border-radius: 8px;
+}
+
+.phantom-div {
+  width: 16px;
+  height: 16px;
+  opacity: 0;
 }
 
 button.btn {
@@ -228,6 +238,17 @@ button.btn.add-invoice-btn .white-circle {
   align-items: center;
   justify-content: center;
   margin-right: 16px;
+}
+button.btn.add-item-btn {
+  box-sizing: border-box;
+  width: 100%;
+  font-weight: 700;
+  color: #7E88C3;
+  background-color: #F9FAFE;
+}
+button.btn.add-item-btn:hover {
+  background-color: #DFE3FA;
+  cursor: pointer;
 }
 
 .banner {
@@ -459,25 +480,34 @@ html.dark-theme .toggle-theme-icon {
 
 .form {
   border: 1px solid red;
+  border-radius: 8px;
+  width: 615px;
+  box-sizing: border-box;
+  padding: 58px;
+}
+.form .purple-label {
+  margin-top: 48px;
 }
 .form .form-group {
-  padding: 16px 58px;
+  margin-top: 24px;
 }
 .form .form-group input {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 100%;
-  border: 1px solid #DFE3FA;
-  color: #0C0E16;
-  font-weight: 700;
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  padding: 16px 19px;
   font-family: "Spartan", sans-serif;
-  border-radius: 4px;
 }
-.form .form-group input:hover, .form .form-group input:focus {
+.form .form-group select, .form .form-group input {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 19px;
+  border-radius: 4px;
+  border: 1px solid #DFE3FA;
+  color: #0C0E16;
+  font-weight: 700;
+}
+.form .form-group select:hover, .form .form-group select:focus, .form .form-group input:hover, .form .form-group input:focus {
   outline: 1px solid #9277FF;
 }
 .form .form-group .form-group-inner {
@@ -486,6 +516,46 @@ html.dark-theme .toggle-theme-icon {
 .form .city-postcode-country {
   display: flex;
   justify-content: space-between;
+}
+.form .dates {
+  display: flex;
+  justify-content: space-between;
+}
+.form .dates .form-group {
+  width: 240px;
+}
+.form .items-container {
+  display: flex;
+  justify-content: space-between;
+}
+.form .items-container input {
+  color: #0C0E16;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  font-family: "Spartan", sans-serif;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 19px;
+  border-radius: 4px;
+  border: 1px solid #DFE3FA;
+}
+.form .items-container input:hover, .form .items-container input:focus {
+  outline: 1px solid #9277FF;
+}
+.form .items-container .name, .form .items-container #name {
+  width: 214px;
+}
+.form .items-container .quantity, .form .items-container #quantity {
+  width: 48px;
+}
+.form .items-container .price, .form .items-container #price {
+  width: 100px;
+}
+.form .items-container .total, .form .items-container #total {
+  width: 48px;
 }
 
 /*# sourceMappingURL=App.css.map */
