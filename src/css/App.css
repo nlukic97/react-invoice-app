@@ -35,7 +35,7 @@ h3 {
   letter-spacing: -0.5px;
 }
 
-h4 {
+h4, .h4 {
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
@@ -455,6 +455,37 @@ html.dark-theme .toggle-theme-icon {
   height: 8px;
   border-radius: 50%;
   margin-right: 8px;
+}
+
+.form {
+  border: 1px solid red;
+}
+.form .form-group {
+  padding: 16px 58px;
+}
+.form .form-group input {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #DFE3FA;
+  color: #0C0E16;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  padding: 16px 19px;
+  font-family: "Spartan", sans-serif;
+  border-radius: 4px;
+}
+.form .form-group input:hover, .form .form-group input:focus {
+  outline: 1px solid #9277FF;
+}
+.form .form-group .form-group-inner {
+  width: 152px;
+}
+.form .city-postcode-country {
+  display: flex;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=App.css.map */

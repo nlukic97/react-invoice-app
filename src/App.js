@@ -9,6 +9,7 @@ import Data from './data/data.json';
 // components
 import Sidebar from './components/Sidebar';
 import Invoices from './components/Invoices';
+import Form from './components/Form';
 
 function App() {
 
@@ -117,12 +118,13 @@ function App() {
 
   return (
     <div className='App'>
-      <Sidebar />
+      {/* <Sidebar /> */}
 
         <BrowserRouter>
           <Routes>
             <Route path="/" element={renderInvoices()}/>
             <Route path="/invoice/:id" element={<InvoicePage invoices={data} deleteInvoice={deleteInvoice} markAsPaid={markAsPaid} />} />
+            <Route path="/form" element={<Form/>} />
           </Routes>
         </BrowserRouter>
 
