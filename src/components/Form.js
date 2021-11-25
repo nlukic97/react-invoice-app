@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import { setPaymentDueDate } from "../methods/HelperMethods";
 
-const Form = ({invoice, submitNewInvoice}) => {
+const Form = ({invoice, submitNewInvoice, discardChanges}) => {
 
 
     
@@ -215,13 +215,22 @@ const Form = ({invoice, submitNewInvoice}) => {
                  {/* if the invoice prop is empty, this would mean that we are creating a new invoice, and this should be shown */}
                     {(invoice === null) ?  (
                         <div className="button-container">
-                            <button className="btn gray">Discard</button>
+                            <button className="btn gray" onClick={e=>{
+                                e.preventDefault()
+                                discardChanges()
+                            }}>Discard</button>
                             <div>
-                                <button className="btn draft">Save as Draft</button>
+                                <button className="btn draft" onClick={(e)=>{
+                                    e.preventDefault()
+                                    submitNewInvoice(formData, 'draft')
+                                }}>Save as Draft</button>
+
                                 <button className="btn purple" onClick={(e)=>{
                                     e.preventDefault()
-                                    submitNewInvoice(formData)
+                                    //we need a validation here
+                                    submitNewInvoice(formData, 'pending')
                                 }}>Save and Send</button>
+
                             </div>
                         </div>
                     ):(

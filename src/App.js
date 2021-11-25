@@ -116,18 +116,18 @@ function App() {
     //save to local storage after this, maybe with 'use effect'?
   }
 
-  function submitNewInvoice(invoice){
+  function submitNewInvoice(invoice, status){
     //create id, and if exist, create it again, if it does not exist, apply it
     let id = getRandomId(data)
 
 
-    setData([...data, {...invoice, id, status:'pending'}])
+    setData([...data, {...invoice, id, status}])
   }
 
 
   return (
     <div className='App'>
-      {/* <Sidebar /> */}
+      <Sidebar />
 
         <BrowserRouter>
           <Routes>
