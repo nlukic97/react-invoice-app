@@ -1,23 +1,14 @@
 features to design:
 
 -form component for 
-	-- inserting a (pending invoice)
-	-- creating a draft invoice (which can have empty fields [and no validation??] )
-	-- editing
+				-- allowing an invoice edit to be saved as a draft --- do i need this ?
+	++ validation and error display
+	** challengingParts: calendar
 
-	++ validation errors
-
-	** challengingParts: calendar, conditional display
+- confirm deletion modal
+- data display of the numbers (and handling if totals cannot be calculated in case the thing is a draft). There is also a bit of a mess with the use of toFixed. 
 
 - dark theme (update colors to be variables)
-- confirm deletion modal
 
-- design the display of the filter modal
 - tablet design
--mobile desing
-
-
-
-**** maybe I can edit the internal state of the invoice, and upon submit validate the data if it is a draft invoice, and then submit it to app.js
-
-**** for an edit, I would have to populate the state with data passed down from the app invoices page (id parameter to filter?)
+- mobile desing
