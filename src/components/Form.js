@@ -91,6 +91,56 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
         setFormData({...formData, items: formData.items.filter((item, itemIndex)=> itemIndex !== indexToDelete)})
     }
 
+    function priceChangeTotalCalc(price, index){
+        let total = ''
+        if(price !== null && formData.items[index].quantity !== null) {
+            total = price * formData.items[index].quantity
+        }
+        setFormData({
+            ...formData, 
+            items: formData.items.map((item, itemIndex) => {
+                if(itemIndex === index){
+                    item.price = price
+                    item.total = total
+                    return item 
+                } else {
+                    return item
+                }
+            })
+        })
+
+        setFormData({...formData, total:calcTotalDue()}) //testing this still
+    }
+
+    function quantityChangeTotalCalc(quantity, index){ //receiving NaN, make sure to cater to that
+        let total = '';
+        if(formData.items[index].price !== null && quantity !== null) {
+            total = formData.items[index].price * quantity
+        }
+        setFormData({
+            ...formData, 
+            items: formData.items.map((item, itemIndex) => {
+                if(itemIndex === index){
+                    item.quantity = quantity
+                    item.total = total
+                    return item 
+                } else {
+                    return item
+                }
+            })
+        })
+
+        setFormData({...formData, total:calcTotalDue()}) //testing this still
+    }
+
+    function calcTotalDue(){
+        let res = formData.items.reduce((prev,curr)=>{
+            return prev + curr.total
+        },0)
+
+        return res
+    }
+
     useEffect(() => {
         console.log(formData);
     }, [formData])
@@ -195,9 +245,16 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
                     return (
                     <div className="items-container" key={index}>
                         <input type="text" name="name" id="name" defaultValue={item.name} onChange={e=> updateFormDataItem(index,'name',e.target.value)} />
-                        <input type="number" name="quantity" id="quantity" defaultValue={item.quantity} onChange={e=> updateFormDataItem(index,'quantity',parseFloat(e.target.value) )} />
-                        <input type="number" name="price" id="price" defaultValue={item.price} onChange={e=> updateFormDataItem(index,'price',parseFloat(e.target.value) )} />
-                        <input type="number" name="total" id="total" defaultValue={item.total} onChange={e=> updateFormDataItem(index,'total',parseFloat(e.target.value) )} />
+                        <input type="number" name="quantity" id="quantity" defaultValue={item.quantity} onChange={e=> {
+                            // updateFormDataItem(index,'quantity',parseInt(e.target.value))
+                            quantityChangeTotalCalc(parseInt(e.target.value), index)
+                        }} />
+                        <input type="number" name="price" id="price" defaultValue={item.price} onChange={e=> {
+                            // updateFormDataItem(index,'price',parseFloat(e.target.value))
+                            priceChangeTotalCalc(parseFloat(e.target.value), index)
+                        }} />
+                        {/* <input type="number" name="total" id="total" defaultValue={item.total} onChange={e=> updateFormDataItem(index,'total',parseFloat(e.target.value) )} /> */}
+                        <div id="total">{item.total}</div>
                             
                         <button onClick={(e)=>{
                             e.preventDefault()

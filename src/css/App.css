@@ -609,6 +609,10 @@ html.dark-theme .toggle-theme-icon {
 .form .items-container .quantity, .form .items-container #quantity {
   width: 48px;
 }
+.form .items-container #quantity {
+  padding: 16px 0;
+  text-align: center;
+}
 .form .items-container .price, .form .items-container #price {
   width: 100px;
 }
