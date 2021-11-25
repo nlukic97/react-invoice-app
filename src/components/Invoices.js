@@ -4,7 +4,15 @@ import Form from './Form';
 import InvoiceListItem from './InvoiceListItem';
 import InvoiceActions from './InvoiceActions';
 
-const Invoices = ({invoices,message, changedFilter, checkedBoxes}) => {    
+const Invoices = ({
+    invoices,
+    message, 
+    changedFilter, 
+    checkedBoxes, 
+    
+    submitNewInvoice
+    }) => {    
+
     return (
         <div>
             <InvoiceActions message={message} changedFilter={changedFilter} checkedBoxes={checkedBoxes}/>
@@ -14,7 +22,7 @@ const Invoices = ({invoices,message, changedFilter, checkedBoxes}) => {
             </div>
 
             {/* <Form invoice={invoices[0]} /> */}
-            <Form invoice={null} />
+            <Form invoice={null} submitNewInvoice={submitNewInvoice} />
         </div>
     )
 }

@@ -105,4 +105,17 @@
         }
 
     }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+
+        &.editing {
+            justify-content: flex-end;
+        }
+
+        .draft {
+            margin-right: 8px;
+        }
+    }
 }

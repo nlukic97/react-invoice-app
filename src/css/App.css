@@ -222,6 +222,15 @@ button.btn.gray:hover {
   background-color: #DFE3FA;
   cursor: pointer;
 }
+button.btn.draft {
+  background-color: #373B53;
+  color: #888EB0;
+}
+button.btn.draft:hover {
+  background-color: #0C0E16;
+  color: #888EB0;
+  cursor: pointer;
+}
 button.btn.add-invoice-btn {
   padding: 8px 16px 8px 8px;
   margin-left: 40px;
@@ -568,6 +577,16 @@ html.dark-theme .toggle-theme-icon {
 }
 .form .items-container .total, .form .items-container #total {
   width: 48px;
+}
+.form .button-container {
+  display: flex;
+  justify-content: space-between;
+}
+.form .button-container.editing {
+  justify-content: flex-end;
+}
+.form .button-container .draft {
+  margin-right: 8px;
 }
 
 /*# sourceMappingURL=App.css.map */

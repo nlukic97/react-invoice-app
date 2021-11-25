@@ -1,6 +1,9 @@
 import {useState, useEffect} from "react";
+import { setPaymentDueDate } from "../methods/HelperMethods";
 
-const Form = ({invoice}) => {
+const Form = ({invoice, submitNewInvoice}) => {
+
+
     
     let emptyInvoice = {
         clientAddress: {
@@ -11,12 +14,12 @@ const Form = ({invoice}) => {
         },
         clientEmail:'',
         clientName:'',
-        createdAt:'',
+        createdAt: new Date().toLocaleDateString('en-CA'),
         description:'',
         id:'',
         items:[],
-        paymentDue:'',
-        paymentTerms:1,
+        paymentDue:setPaymentDueDate(new Date(), 30).toLocaleDateString('en-CA'),
+        paymentTerms:30,
         senderAddress:{
             street:'',
             city:'',
@@ -24,7 +27,7 @@ const Form = ({invoice}) => {
             country:''
         },
         status:'',
-        total:null
+        total:0
     };
 
     let startingData = (invoice || emptyInvoice);
@@ -60,10 +63,23 @@ const Form = ({invoice}) => {
     }
 
     function updateFormDataItem(index, key, value){
-        let newData = formData
-        newData.items[index][key] = value
-
         setFormData({...formData, items: formData.items.map(item=> (item.id === index) ? item[key] = value : item)})
+    }
+
+    function changeDates(date){
+        let createdAt = date
+        let paymentDue = setPaymentDueDate(new Date(date),formData.paymentTerms).toLocaleDateString('en-CA')
+
+        setFormData({...formData, createdAt, paymentDue})
+    }
+    
+    function changePaymentTerms(days){
+        let createdAt = formData.createdAt
+        let paymentDue = setPaymentDueDate(new Date(createdAt),days).toLocaleDateString('en-CA')
+        let paymentTerms = days
+    
+        setFormData({...formData, createdAt, paymentTerms, paymentDue})
+
     }
 
     function deleteInvoiceItem(indexToDelete){
@@ -79,8 +95,9 @@ const Form = ({invoice}) => {
     return (
         <div className="form-overlay">
             <form className="form">
+                {(invoice) === null ? <h1 className="sp-invoice-total">New Invoice</h1>: <h1 className="sp-invoice-total">Edit <span className="color-grayblue">#</span>{formData.id}</h1>}
                 
-                <h4 className="color-purple-dark">Bill from</h4>
+                <h4 className="color-purple-dark purple-label">Bill from</h4>
                 
                 {/* sender street address */}
                 <div className="form-group">
@@ -142,12 +159,12 @@ const Form = ({invoice}) => {
                 <div className="dates">
                     <div className="form-group">
                         <label className="h4 color-grayblue" htmlFor="createdAt">Invoice Date</label>
-                        <input type="date" name="createdAt" id="createdAt" defaultValue={formData.createdAt} onChange={(e)=> {}} />
+                        <input type="date" name="createdAt" id="createdAt" defaultValue={formData.createdAt} onChange={(e)=> changeDates(e.target.value) } />
                     </div>
 
                     <div className="form-group">
                         <label className="h4 color-grayblue" htmlFor="paymentTerms">Payment Terms</label>
-                        <select name="paymentTerms" id="paymentTerms" defaultValue="30" defaultValue={formData.paymentTerms} onChange={(e)=> updateData('paymentTerms', parseInt(e.target.value))}>
+                        <select name="paymentTerms" id="paymentTerms" defaultValue="30" defaultValue={formData.paymentTerms} onChange={(e)=> changePaymentTerms(parseInt(e.target.value))}>
                             <option value="1">Net 1 Day</option>
                             <option value="7">Net 7 Days</option>
                             <option value="14">Net 14 Days</option>
@@ -194,8 +211,28 @@ const Form = ({invoice}) => {
                         addNewItem()
                     }}>+ Add new item</button>
                 </div>
-                    
+
+                 {/* if the invoice prop is empty, this would mean that we are creating a new invoice, and this should be shown */}
+                    {(invoice === null) ?  (
+                        <div className="button-container">
+                            <button className="btn gray">Discard</button>
+                            <div>
+                                <button className="btn draft">Save as Draft</button>
+                                <button className="btn purple" onClick={(e)=>{
+                                    e.preventDefault()
+                                    submitNewInvoice(formData)
+                                }}>Save and Send</button>
+                            </div>
+                        </div>
+                    ):(
+                        <div className="button-container editing">
+                            <button className="btn gray">Cancel</button>
+                            <button className="btn purple">Save Changes</button>
+                        </div>
+                    )}
             </form>
+
+
         </div>
     )
 }

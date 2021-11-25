@@ -33,6 +33,17 @@ button {
             }
         }
 
+        &.draft {
+            background-color: #373B53;
+            color: #888EB0;
+            
+            &:hover {
+                background-color: #0C0E16;
+                color: #888EB0;
+                cursor: pointer;
+            }
+        }
+
         // button for adding the invoice (custom)
         &.add-invoice-btn {
             padding: 8px 16px 8px 8px;

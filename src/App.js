@@ -3,13 +3,14 @@ import {useState} from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import InvoicePage from './components/InvoicePage';
 
+import { getRandomId } from './methods/HelperMethods';
+
 // data
 import Data from './data/data.json';
 
 // components
 import Sidebar from './components/Sidebar';
 import Invoices from './components/Invoices';
-import Form from './components/Form';
 
 function App() {
 
@@ -96,9 +97,9 @@ function App() {
   // method to supply the '/' route with the correct invoice list page depending on the status of the filter
   function renderInvoices(){
     if(filters.length === 0 || filters.length > num_of_filters - 1){
-      return (<Invoices invoices={data} message={`There are ${data.length} invoices`} changedFilter={changedFilter} checkedBoxes={filters} />)
+      return (<Invoices invoices={data} message={`There are ${data.length} invoices`} changedFilter={changedFilter} checkedBoxes={filters} submitNewInvoice={submitNewInvoice} />)
     } else {
-      return (<Invoices invoices={get_filtered_data()} message={`There are ${get_filtered_data_msg(get_filtered_data())} invoices`} changedFilter={changedFilter} checkedBoxes={filters} />)
+      return (<Invoices invoices={get_filtered_data()} message={`There are ${get_filtered_data_msg(get_filtered_data())} invoices`} changedFilter={changedFilter} checkedBoxes={filters} submitNewInvoice={submitNewInvoice} />)
     }
   }
 
@@ -113,6 +114,14 @@ function App() {
   function markAsPaid(invoiceId){
     setData(data.map(invoice=> (invoice.id === invoiceId && invoice.status !== 'paid') ? {...invoice, status:'paid'} : invoice))
     //save to local storage after this, maybe with 'use effect'?
+  }
+
+  function submitNewInvoice(invoice){
+    //create id, and if exist, create it again, if it does not exist, apply it
+    let id = getRandomId(data)
+
+
+    setData([...data, {...invoice, id, status:'pending'}])
   }
 
 
