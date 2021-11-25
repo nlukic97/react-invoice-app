@@ -63,7 +63,11 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
     }
 
     function updateFormDataItem(index, key, value){
-        setFormData({...formData, items: formData.items.map(item=> (item.id === index) ? item[key] = value : item)})
+        setFormData({
+            ...formData,
+            items: formData.items.map((item, itemIndex)=> (itemIndex === index) ? {...item, [key]:value} : item)
+            
+        })
     }
 
     function changeDates(date){
