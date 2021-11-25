@@ -1,10 +1,10 @@
 features to design:
 
-- display of the single page part (design and toggle buttons)
-
 -form component for 
-	-- inserting
+	-- inserting a (pending invoice)
+	-- creating a draft invoice (which can have empty fields [and no validation??] )
 	-- editing
+
 	++ validation errors
 
 	** challengingParts: calendar, conditional display
@@ -13,3 +13,11 @@ features to design:
 - confirm deletion modal
 
 - design the display of the filter modal
+- tablet design
+-mobile desing
+
+
+
+**** maybe I can edit the internal state of the invoice, and upon submit validate the data if it is a draft invoice, and then submit it to app.js
+
+**** for an edit, I would have to populate the state with data passed down from the app invoices page (id parameter to filter?)
