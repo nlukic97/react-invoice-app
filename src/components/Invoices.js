@@ -3,8 +3,9 @@ import {useState} from "react";
 import Form from './Form';
 import InvoiceListItem from './InvoiceListItem';
 import InvoiceActions from './InvoiceActions';
+import NoInvoicesStatus from "./NoInvoicesStatus";
 
-const Invoices = ({invoices,message, changedFilter, checkedBoxes, submitNewInvoice}) => {
+const Invoices = ({invoices, message, changedFilter, checkedBoxes, submitNewInvoice}) => {
         
     const [FormVisibility, setFormVisibility] = useState(false)
 
@@ -17,9 +18,13 @@ const Invoices = ({invoices,message, changedFilter, checkedBoxes, submitNewInvoi
         <div>
             <InvoiceActions message={message} changedFilter={changedFilter} checkedBoxes={checkedBoxes} openModalForNewForm={()=> {setFormVisibility(true)}} />
 
-            <div className="invoice_items_list">
+            {/* displaying the invoices, or a 'no invoices' status if there are none */}
+            {(invoices.length > 0) ? 
+            (<div className="invoice_items_list">
                 {invoices.map(invoice=> <InvoiceListItem data={invoice}  key={invoice.id}/>)}
-            </div>
+            </div>) 
+            : 
+            <NoInvoicesStatus noInvoiceMessage={(checkedBoxes.length > 0) ? 'There are no invoices of this type' : 'There is nothing here'} />}
 
             {/**  
              * Form will be displayed only upon clicking new invoice btn. 

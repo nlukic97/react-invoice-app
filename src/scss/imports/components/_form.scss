@@ -5,16 +5,17 @@
     top: 0;
     height: 100vh;
     width: 100vw;
+    overflow-y: scroll;
 }
 
 .form {
     background-color: #fff;
     border-radius: 8px;
-    width: 615px;
+    width: calc(615px + 103px);
     box-sizing: border-box;
     padding: 58px;
-    overflow-y: scroll;
-    height: 100%;
+    height: min-content;
+    padding-left: calc(103px + 58px);
 
     .purple-label {
         margin-top: 48px;

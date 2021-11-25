@@ -11,7 +11,7 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
     let {id} = useParams()
     let invoice = invoices.find(item=> item.id === id)
 
-    console.log(invoice);
+    // console.log(invoice);
 
     const [FormVisibility, setFormVisibility] = useState(false)
 
@@ -31,7 +31,10 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
             {/* This is only displayed if the user clicks the 'edit' button */}
             {(FormVisibility === true ? <Form invoice={invoice} discardChanges={()=>{setFormVisibility(false)}} updateInvoice={handleInvoiceUpdate}/> : null)}
             
-            <Link to="/">Back</Link>
+            <Link to="/" className="back-link">
+                <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M6.342.886L2.114 5.114l4.228 4.228" stroke="#9277FF" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
+                <h4>Go back</h4>
+            </Link>
 
             
 
