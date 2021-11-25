@@ -478,12 +478,23 @@ html.dark-theme .toggle-theme-icon {
   margin-right: 8px;
 }
 
+.form-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
 .form {
-  border: 1px solid red;
+  background-color: #fff;
   border-radius: 8px;
   width: 615px;
   box-sizing: border-box;
   padding: 58px;
+  overflow-y: scroll;
+  height: 100%;
 }
 .form .purple-label {
   margin-top: 48px;
@@ -527,6 +538,7 @@ html.dark-theme .toggle-theme-icon {
 .form .items-container {
   display: flex;
   justify-content: space-between;
+  margin-top: 24px;
 }
 .form .items-container input {
   color: #0C0E16;

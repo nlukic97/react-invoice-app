@@ -124,7 +124,7 @@ function App() {
           <Routes>
             <Route path="/" element={renderInvoices()}/>
             <Route path="/invoice/:id" element={<InvoicePage invoices={data} deleteInvoice={deleteInvoice} markAsPaid={markAsPaid} />} />
-            <Route path="/form" element={<Form/>} />
+            {/* <Route path="/form" element={<Form/>} /> */}
           </Routes>
         </BrowserRouter>
 
