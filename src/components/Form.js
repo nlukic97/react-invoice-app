@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import { setPaymentDueDate } from "../methods/HelperMethods";
 
-const Form = ({invoice, submitNewInvoice, discardChanges}) => {
+const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
 
 
     
@@ -164,7 +164,7 @@ const Form = ({invoice, submitNewInvoice, discardChanges}) => {
 
                     <div className="form-group">
                         <label className="h4 color-grayblue" htmlFor="paymentTerms">Payment Terms</label>
-                        <select name="paymentTerms" id="paymentTerms" defaultValue="30" defaultValue={formData.paymentTerms} onChange={(e)=> changePaymentTerms(parseInt(e.target.value))}>
+                        <select name="paymentTerms" id="paymentTerms" defaultValue={formData.paymentTerms} onChange={(e)=> changePaymentTerms(parseInt(e.target.value))}>
                             <option value="1">Net 1 Day</option>
                             <option value="7">Net 7 Days</option>
                             <option value="14">Net 14 Days</option>
@@ -235,8 +235,15 @@ const Form = ({invoice, submitNewInvoice, discardChanges}) => {
                         </div>
                     ):(
                         <div className="button-container editing">
-                            <button className="btn gray">Cancel</button>
-                            <button className="btn purple">Save Changes</button>
+                            <button className="btn gray" onClick={(e)=>{
+                                e.preventDefault()
+                                discardChanges()
+                            }}>Cancel</button>
+
+                            <button className="btn purple" onClick={(e)=>{
+                                e.preventDefault()
+                                updateInvoice(formData)
+                            }}>Save Changes</button>
                         </div>
                     )}
             </form>

@@ -3,7 +3,7 @@ import {useState} from "react";
 
 const InvoiceActions = ({message, changedFilter, checkedBoxes, openModalForNewForm}) => {
     // used to render or hide the <FilterOptions> component
-    const [isHover, setIsHover] = useState(false)
+    const [filterOptionsOpen, setfilterOptionsOpen] = useState(false)
 
     return (
         <div className="invoice_actions">
@@ -15,16 +15,14 @@ const InvoiceActions = ({message, changedFilter, checkedBoxes, openModalForNewFo
             <div className="__action_contols">
 
                 <div className="___filter_container" 
-                    // onMouseEnter={()=> setIsHover(true)} 
-                    // onMouseLeave={()=>setIsHover(false)}
-                    onClick={()=>setIsHover(!isHover)} //this to be used for render in different screen
+                    onClick={()=>setfilterOptionsOpen(!filterOptionsOpen)} //this to be used for render in different screen
                 >
                     <h4>Filter by status</h4>
-                    <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg" style={(isHover === true) ? {transform:'rotate(180deg)'} : {}}><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
-                    
-                    {/* style this */}
+                    <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg" style={(filterOptionsOpen === true) ? {transform:'rotate(180deg)'} : {}}><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
                 </div>
-                    {(isHover === true) ? <FilterOptions changedFilter={changedFilter} checkedBoxes={checkedBoxes}/>:null}
+
+                {/* the filter options are only displayed when a user clicks on the "Filter by status" text. It also closes this way */}
+                {(filterOptionsOpen === true) ? <FilterOptions changedFilter={changedFilter} checkedBoxes={checkedBoxes}/> : null }
 
 
                 <button className="btn add-invoice-btn purple" onClick={openModalForNewForm}>

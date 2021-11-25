@@ -1,20 +1,39 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router"
+import {useState} from "react";
 
 import {convertDate} from "../methods/HelperMethods"; //import of custom helper method (used in InvoiceListItem.js and InvoicePage.js)
+import Form from "./Form";
 
-const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
+const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
 
     let navigate = useNavigate()
     let {id} = useParams()
     let invoice = invoices.find(item=> item.id === id)
 
     console.log(invoice);
+
+    const [FormVisibility, setFormVisibility] = useState(false)
+
+    function openInvoiceEditModal(){
+        setFormVisibility(true)
+    }
+
+    function handleInvoiceUpdate(invoice){
+        updateInvoice(invoice)
+        setFormVisibility(false)
+    }
     
 
     return (
         <div className="single_page_invoice">
+            
+            {/* This is only displayed if the user clicks the 'edit' button */}
+            {(FormVisibility === true ? <Form invoice={invoice} discardChanges={()=>{setFormVisibility(false)}} updateInvoice={handleInvoiceUpdate}/> : null)}
+            
             <Link to="/">Back</Link>
+
+            
 
             {/* If the invoice of a certain ID does not exist, display the error message only */}
             {(!invoice) ? <h1>This invoice does not exist</h1> : (
@@ -31,7 +50,7 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid}) => {
 
                     {/* 2 Button container */}
                     <div className="button-container card">
-                        <button className="btn gray">
+                        <button className="btn gray" onClick={openInvoiceEditModal}>
                             <h4>Edit</h4>
                         </button>
 

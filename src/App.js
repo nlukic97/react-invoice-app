@@ -124,6 +124,10 @@ function App() {
     setData([...data, {...invoice, id, status}])
   }
 
+  function updateInvoice(updatedInvoice){
+    setData(data.map(invoice=> (invoice.id === updatedInvoice.id) ? updatedInvoice : invoice))
+  }
+
 
   return (
     <div className='App'>
@@ -132,7 +136,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={renderInvoices()}/>
-            <Route path="/invoice/:id" element={<InvoicePage invoices={data} deleteInvoice={deleteInvoice} markAsPaid={markAsPaid} />} />
+            <Route path="/invoice/:id" element={<InvoicePage invoices={data} deleteInvoice={deleteInvoice} markAsPaid={markAsPaid} updateInvoice={updateInvoice} />} />
             {/* <Route path="/form" element={<Form/>} /> */}
           </Routes>
         </BrowserRouter>
