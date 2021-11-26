@@ -7,6 +7,14 @@
   --body-1:#888EB0;
   --input-background:#FFFFFF;
   --input-border-color:#DFE3FA;
+  --add-item-btn-color:#7E88C3;
+  --add-item-btn-Bgcolor:#F9FAFE;
+  --draft-hover-background:#0C0E16;
+  --invoice-items-card:#F9FAFE;
+  --color-grayblue:#7E88C3;
+  --total-amount-bg:#373B53;
+  --filter-background:#FFFFFF;
+  --filter-checkbox-background:#DFE3FA;
 }
 
 :root.dark-theme {
@@ -17,6 +25,14 @@
   --body-1:#DFE3FA;
   --input-background:#1E2139;
   --input-border-color:#252945;
+  --add-item-btn-color:#DFE3FA;
+  --add-item-btn-Bgcolor:#252945;
+  --draft-hover-background:#1E2139;
+  --invoice-items-card:#252945;
+  --color-grayblue:#DFE3FA;
+  --total-amount-bg:#0C0E16;
+  --filter-background:#252945;
+  --filter-checkbox-background:#1E2139;
 }
 
 body {
@@ -167,7 +183,7 @@ body {
   flex: 1;
 }
 .single_page_invoice .flex-container .data-container .invoice-items-card {
-  background-color: #F9FAFE;
+  background-color: var(--invoice-items-card);
   border-radius: 8px;
 }
 .single_page_invoice .flex-container .data-container .invoice-items-card .items-container {
@@ -180,6 +196,9 @@ body {
 }
 .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .left, .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right {
   flex: 1;
+}
+.single_page_invoice .flex-container .data-container .invoice-items-card .items-container .left h4, .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right h4 {
+  color: var(--default-text-color);
 }
 .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right {
   display: flex;
@@ -198,7 +217,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 24px 32px;
-  background-color: #373B53;
+  background-color: var(--total-amount-bg);
   color: #FFFFFF;
   border-radius: 0 0 8px 8px;
 }
@@ -220,7 +239,7 @@ body {
 }
 
 .color-grayblue {
-  color: #7E88C3;
+  color: var(--color-grayblue);
 }
 
 .color-gray-dark {
@@ -278,7 +297,7 @@ button.btn.draft {
   color: #888EB0;
 }
 button.btn.draft:hover {
-  background-color: #0C0E16;
+  background-color: var(--draft-hover-bg);
   color: #888EB0;
   cursor: pointer;
 }
@@ -303,11 +322,10 @@ button.btn.add-item-btn {
   box-sizing: border-box;
   width: 100%;
   font-weight: 700;
-  color: #7E88C3;
-  background-color: #F9FAFE;
+  color: var(--add-item-btn-color);
+  background-color: var(--add-item-btn-Bgcolor);
 }
 button.btn.add-item-btn:hover {
-  background-color: #DFE3FA;
   cursor: pointer;
 }
 button.deleteItemBtn {
@@ -470,10 +488,10 @@ html.dark-theme .toggle-theme-icon {
   top: 100%;
   left: -37px;
   width: 192px;
-  background-color: #fff;
   border-radius: 8px;
   padding: 24px;
   box-shadow: 0 10px 20px 0 rgba(72, 84, 159, 0.1);
+  background: var(--filter-background);
 }
 .invoice_actions .__action_contols .filter-form .form-group {
   display: flex;
@@ -487,7 +505,7 @@ html.dark-theme .toggle-theme-icon {
   width: 15px;
   height: 15px;
   margin-right: 14px;
-  background-color: #DFE3FA;
+  background-color: var(--filter-checkbox-background);
   border-radius: 2px;
   position: relative;
   border: 1px solid transparent;
@@ -513,6 +531,9 @@ html.dark-theme .toggle-theme-icon {
 }
 .invoice_actions .__action_contols .filter-form .form-group input:checked:after {
   opacity: 1;
+}
+.invoice_actions .__action_contols .filter-form .form-group label {
+  color: var(--default-text-color);
 }
 .invoice_actions .__action_contols .filter-form .form-group label:hover {
   cursor: pointer;

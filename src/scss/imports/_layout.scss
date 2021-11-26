@@ -97,7 +97,7 @@ body {
 
             // used for both the label and the data of the invoice items
             .invoice-items-card {
-                background-color: #F9FAFE;
+                background-color: var(--invoice-items-card);
                 border-radius: 8px;
 
                 .items-container {
@@ -111,6 +111,10 @@ body {
 
                     .left, .right {
                         flex: 1;
+
+                        h4 {
+                            color: var(--default-text-color);
+                        }
                     }
 
                     .right {
@@ -134,7 +138,7 @@ body {
                     align-items: center;
                     justify-content: space-between;
                     padding: 24px 32px;
-                    background-color: #373B53;
+                    background-color: var(--total-amount-bg);
                     color: #FFFFFF;
                     border-radius: 0 0 8px 8px;
                 }

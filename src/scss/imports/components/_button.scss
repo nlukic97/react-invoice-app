@@ -38,7 +38,7 @@ button {
             color: #888EB0;
             
             &:hover {
-                background-color: #0C0E16;
+                background-color: var(--draft-hover-bg);
                 color: #888EB0;
                 cursor: pointer;
             }
@@ -68,11 +68,10 @@ button {
             box-sizing: border-box;
             width: 100%;
             font-weight: 700;
-            color: #7E88C3;
-            background-color: #F9FAFE;
+            color: var(--add-item-btn-color);
+            background-color: var(--add-item-btn-Bgcolor);
 
             &:hover {
-                background-color: #DFE3FA;
                 cursor: pointer;
             }
         }
