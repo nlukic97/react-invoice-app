@@ -7,7 +7,7 @@ $color-dark2:#252945;
 $color-gray-light:#DFE3FA;
 $color-gray-dark:#888EB0;
 
-$color-grayblue: #7E88C3;
+$color-grayblue: var(--color-grayblue);
 
 $color-dark3:#0C0E16;
 
@@ -16,4 +16,43 @@ $color-pink:#FF9797;
 
 $color-light-bg: #F8F8FB;
 $color-dark4:#141625;
+
+
+:root.light-theme {
+    --body-background: #F8F8FB;
+    --card-background:#FFFFFF;
+    --form-background:#FFFFFF;
+    --default-text-color:#0C0E16;
+    --body-1:#888EB0;
+    --input-background:#FFFFFF;
+    --input-border-color:#DFE3FA;
+    --add-item-btn-color:#7E88C3;
+    --add-item-btn-Bgcolor:#F9FAFE;
+    --draft-hover-background:#0C0E16;
+    --invoice-items-card:#F9FAFE;
+    --color-grayblue:#7E88C3;
+    --total-amount-bg:#373B53;
+    --filter-background:#FFFFFF;
+    --filter-checkbox-background:#DFE3FA;
+}
+
+:root.dark-theme {
+    --body-background: #141625;
+    --card-background:#1E2139;
+    --form-background:#141625;
+    --default-text-color:#FFFFFF;
+    --body-1:#DFE3FA;
+    --input-background:#1E2139;
+    --input-border-color:#252945;
+    --add-item-btn-color:#DFE3FA;
+    --add-item-btn-Bgcolor:#252945;
+    --draft-hover-background:#1E2139;
+    --invoice-items-card:#252945;
+    --color-grayblue:#DFE3FA;
+    --total-amount-bg:#0C0E16;
+    --filter-background:#252945;
+    --filter-checkbox-background:#1E2139;
+
+}
+
 

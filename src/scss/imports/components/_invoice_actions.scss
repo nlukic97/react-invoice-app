@@ -1,0 +1,100 @@
+.invoice_actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 72px;
+
+    .__heading_and_amount {
+
+        p {
+            color: var(--body-1);
+        }
+    }
+
+    .__action_contols {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .___filter_container {
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                cursor: pointer;
+            }
+            
+            h4 {
+                margin-right: 16px;
+                color: var(--default-text-color);
+            }
+
+        }
+        .filter-form {
+            position: absolute;
+            top: 100%;
+            left: -37px;
+            width: 192px;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow:0 10px 20px 0 rgb(72, 84, 159,.1);
+            background: var(--filter-background);
+
+            .form-group {
+                &:not(:first-child) {
+                    margin-top: 16px;
+                }
+                display: flex;
+                align-items: flex-start;
+
+                input {
+                    appearance: none;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 14px;
+                    background-color:var(--filter-checkbox-background);
+                    border-radius: 2px;
+                    position: relative;
+                    border: 1px solid transparent;
+                    box-sizing: content-box;
+
+                    // added this underneath because a network throttle may delay the display of the check image (if we simply add is as a background on the input's :checked state).
+                    // By using ::after to pre-load the image, and toggle its opacity upon checked, the previously mentioned issue is avoided.
+                    &::after {
+                        content:'';
+                        width: 15px;
+                        height: 15px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: url('../images/icon-check.svg') no-repeat center center/cover;
+                        background-size:12px;
+                        opacity: 0;
+                    }
+                    
+                    &:hover {
+                        border: 1px solid #7C5DFA;
+                        cursor: pointer;
+                    }
+                    
+                    &:checked {
+                        // background: url('../images/icon-check.svg') no-repeat center center/cover; //replaced with ::after
+                        background-color: #7C5DFA;
+
+                        &:after {
+                            opacity: 1; //when checked, the opacity of the check image is 1
+                        }                        
+                    }
+                }
+
+                label {
+                    color: var(--default-text-color);
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+            }
+        }
+    }
+}

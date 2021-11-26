@@ -1,5 +1,92 @@
 button {
     &.btn {
         border-radius: 24px;
+        border: none;
+        font-family: 'Spartan',sans-serif;
+        padding: 15px 24px;
+
+        // purple color
+        &.purple {
+            background-color: #7C5DFA;
+            color: #fff;
+            &:hover {
+                background-color: #9277FF;
+                cursor: pointer;
+            }
+        }
+        // red color
+        &.red {
+            background-color: #EC5757;
+            color: #fff;
+            &:hover {
+                background-color: #FF9797;
+                cursor: pointer;
+            }
+        }
+        // gray color
+        &.gray {
+            background-color: #F9FAFE;
+            color: #7E88C3;
+            &:hover {
+                background-color: #DFE3FA;
+                cursor: pointer;
+            }
+        }
+
+        &.draft {
+            background-color: #373B53;
+            color: #888EB0;
+            
+            &:hover {
+                background-color: var(--draft-hover-bg);
+                color: #888EB0;
+                cursor: pointer;
+            }
+        }
+
+        // button for adding the invoice (custom)
+        &.add-invoice-btn {
+            padding: 8px 16px 8px 8px;
+            margin-left: 40px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+
+            .white-circle {
+                background-color: #fff;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 16px;
+            }
+        }
+
+        &.add-item-btn {
+            box-sizing: border-box;
+            width: 100%;
+            font-weight: 700;
+            color: var(--add-item-btn-color);
+            background-color: var(--add-item-btn-Bgcolor);
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &.deleteItemBtn {
+        background-color: transparent;
+        border: none;
+
+        &:hover {
+            cursor: pointer;
+
+            svg path {
+                fill: #EC5757;
+            }
+        }
     }
 }

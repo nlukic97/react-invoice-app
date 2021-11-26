@@ -1,0 +1,23 @@
+.color-grayblue {
+    color:$color-grayblue;
+}
+
+.color-gray-dark {
+    color:$color-gray-dark;
+}
+
+.color-purple-dark {
+    color:$color-purple-dark;
+}
+
+.card {
+    padding: 16px 30px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+}
+
+.phantom-div {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+}

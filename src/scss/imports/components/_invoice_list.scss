@@ -1,0 +1,65 @@
+.invoice_items_list {    
+    margin-top: 65px;
+    
+    ._invoice_list_item {
+        text-decoration: none;
+        color: inherit;
+
+        &:visited, &:hover, a:active {
+            color: inherit;
+        }
+
+        &:not(:first-child), &:not(:last-child) {
+            margin: 16px 0;
+        }
+
+        &:first-child,&:last-child {
+            margin: 0;
+        }
+
+        &:hover {
+            border: 1px solid #7C5DFA;
+            cursor: pointer;
+        }
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid transparent;
+
+    
+        .left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            .__id, .__due_date {
+                margin-right: 45px;
+            }
+
+            .__id {
+                color: var(--default-text-color);
+            }
+
+            .__client_name {
+                color:#858BB2;
+            }
+
+            .__due_date, .__client_name {
+                font-weight: 500;
+            }
+        }
+        
+        .right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            .__amount {
+                margin-right: 40px;
+            }
+
+            
+        }
+    }
+}
