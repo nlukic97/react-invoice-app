@@ -18,3 +18,25 @@ $color-light-bg: #F8F8FB;
 $color-dark4:#141625;
 
 
+:root.light-theme {
+    --body-background: #F8F8FB;
+    --card-background:#FFFFFF;
+    --form-background:#FFFFFF;
+    --default-text-color:#0C0E16;
+    --body-1:#888EB0;
+    --input-background:#FFFFFF;
+    --input-border-color:#DFE3FA;
+}
+
+:root.dark-theme {
+    --body-background: #141625;
+    --card-background:#1E2139;
+    --form-background:#141625;
+    --default-text-color:#FFFFFF;
+    --body-1:#DFE3FA;
+    --input-background:#1E2139;
+    --input-border-color:#252945;
+
+}
+
+

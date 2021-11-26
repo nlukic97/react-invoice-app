@@ -98,7 +98,6 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
 
 
     function quantityChangeTotalCalc(quantity, index){ //receiving NaN, make sure to cater to that
-        let total = null;
         let price = formData.items[index].price
 
         let quantityToUse = (isNaN(quantity) ? null : quantity)
@@ -123,7 +122,6 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
 
 
     function priceChangeTotalCalc(price, index){
-        let total = null
         let quantity = formData.items[index].quantity
         
         let priceToUse = (isNaN(price) ? null : price)
@@ -266,9 +264,9 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
                             // updateFormDataItem(index,'price',parseFloat(e.target.value))
                             priceChangeTotalCalc(parseFloat(e.target.value), index)
                         }} />
-                        <div id="total">{(item.total === null) ? null : item.total.toFixed(2) }</div>
+                        <div id="total" className="h4">{(item.total === null) ? null : item.total.toFixed(2) }</div>
                             
-                        <button onClick={(e)=>{
+                        <button className="deleteItemBtn" onClick={(e)=>{
                             e.preventDefault()
                             deleteInvoiceItem(index)
                         }}>
@@ -302,7 +300,7 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
                                     e.preventDefault()
                                     //we need a validation here
                                     submitNewInvoice(formData, 'pending')
-                                }}>Save and Send</button>
+                                }}>Save &amp; Send</button>
 
                             </div>
                         </div>

@@ -1,5 +1,5 @@
 import './css/App.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import InvoicePage from './components/InvoicePage';
 
@@ -26,6 +26,12 @@ function App() {
   }
   
   const [data, setData] = useState(data_to_use)
+  
+  // resets the local storage to contain the newly updated data
+  useEffect(()=>{
+    localStorage.setItem('invoice-data',JSON.stringify(data))
+  },[data])
+
   const [filters, setFilters] = useState([]) //paid, pending, draft
 
   /** 

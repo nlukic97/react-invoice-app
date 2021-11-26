@@ -4,6 +4,12 @@
     align-items: center;
     margin-top: 72px;
 
+    .__heading_and_amount {
+        p {
+            color: var(--body-1);
+        }
+    }
+
     .__action_contols {
         display: flex;
         align-items: center;
@@ -19,6 +25,7 @@
             
             h4 {
                 margin-right: 16px;
+                color: var(--default-text-color);
             }
 
         }

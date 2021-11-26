@@ -4,12 +4,8 @@
 }
   
 
-html.light-theme body {
-    background-color: #F8F8FB;
-}
-
-html.dark-theme body {
-    background-color: #000;
+body {
+    background-color: var(--body-background);
 }
 
 .App {
@@ -27,7 +23,7 @@ html.dark-theme body {
 
     .back-link {
         text-decoration: none;
-        color:#0C0E16;
+        color:var(--default-text-color);
 
         h4 {
             display: inline;

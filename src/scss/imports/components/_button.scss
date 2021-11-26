@@ -77,4 +77,17 @@ button {
             }
         }
     }
+
+    &.deleteItemBtn {
+        background-color: transparent;
+        border: none;
+
+        &:hover {
+            cursor: pointer;
+
+            svg path {
+                fill: #EC5757;
+            }
+        }
+    }
 }

@@ -7,6 +7,7 @@ h1 {
     line-height: 36px;
     letter-spacing: -1px;
     // font-weight: 700;
+    color: var(--default-text-color);
 }
 
 h2 {
@@ -14,6 +15,7 @@ h2 {
     line-height: 22px;
     letter-spacing: -0.63px;
     // font-weight: 700;
+    color: var(--default-text-color);
 }
 
 h3 {
@@ -21,6 +23,7 @@ h3 {
     line-height: 24px;
     letter-spacing: -0.8px;
     // font-weight: 700;
+    color: var(--default-text-color);
 }
 
 .sp-invoice-text {
@@ -28,6 +31,7 @@ h3 {
     color: #0C0E16;
     line-height: 20px;
     letter-spacing: -0.31px;
+    color: var(--default-text-color);
 }
 
 .sp-invoice-total {
