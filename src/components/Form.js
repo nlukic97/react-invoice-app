@@ -91,38 +91,19 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
         setFormData({...formData, items: formData.items.filter((item, itemIndex)=> itemIndex !== indexToDelete)})
     }
 
-    function priceChangeTotalCalc(price, index){
-        let total = ''
-        if(price !== null && formData.items[index].quantity !== null) {
-            total = price * formData.items[index].quantity
-        }
-        setFormData({
-            ...formData, 
-            items: formData.items.map((item, itemIndex) => {
-                if(itemIndex === index){
-                    item.price = price
-                    item.total = total
-                    return item 
-                } else {
-                    return item
-                }
-            })
-        })
-
-        setFormData({...formData, total:calcTotalDue()}) //testing this still
-    }
 
     function quantityChangeTotalCalc(quantity, index){ //receiving NaN, make sure to cater to that
-        let total = '';
-        if(formData.items[index].price !== null && quantity !== null) {
-            total = formData.items[index].price * quantity
-        }
+        let total = null;
+        let price = formData.items[index].price
+
+        let quantityToUse = (isNaN(quantity) ? null : quantity)
+
         setFormData({
             ...formData, 
             items: formData.items.map((item, itemIndex) => {
                 if(itemIndex === index){
-                    item.quantity = quantity
-                    item.total = total
+                    item.quantity = quantityToUse
+                    item.total = (price === null || quantityToUse === null) ? null : price * quantityToUse;
                     return item 
                 } else {
                     return item
@@ -133,12 +114,34 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
         setFormData({...formData, total:calcTotalDue()}) //testing this still
     }
 
+
+    function priceChangeTotalCalc(price, index){
+        let total = null
+        let quantity = formData.items[index].quantity
+        
+        let priceToUse = (isNaN(price) ? null : price)
+        
+        setFormData({
+            ...formData, 
+            items: formData.items.map((item, itemIndex) => {
+                if(itemIndex === index){
+                    item.price = priceToUse
+                    item.total = (priceToUse === null || quantity === null) ? null : priceToUse * quantity;
+                    return item 
+                } else {
+                    return item
+                }
+            })
+        })
+
+        setFormData({...formData, total:calcTotalDue()}) //testing this still
+    }
+
+
     function calcTotalDue(){
-        let res = formData.items.reduce((prev,curr)=>{
+        return formData.items.reduce((prev,curr)=>{
             return prev + curr.total
         },0)
-
-        return res
     }
 
     useEffect(() => {
@@ -253,8 +256,7 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
                             // updateFormDataItem(index,'price',parseFloat(e.target.value))
                             priceChangeTotalCalc(parseFloat(e.target.value), index)
                         }} />
-                        {/* <input type="number" name="total" id="total" defaultValue={item.total} onChange={e=> updateFormDataItem(index,'total',parseFloat(e.target.value) )} /> */}
-                        <div id="total">{item.total}</div>
+                        <div id="total">{(item.total === null) ? null : item.total.toFixed(2) }</div>
                             
                         <button onClick={(e)=>{
                             e.preventDefault()

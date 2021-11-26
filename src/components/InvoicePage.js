@@ -147,8 +147,8 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
 
                                     <div className="right">
                                         <h4 className="quantity color-grayblue">{item.quantity}</h4>
-                                        <h4 className="price color-grayblue">&#163; {item.price.toFixed(2)}</h4>
-                                        <h4 className="total">&#163; {item.total.toFixed(2)}</h4>
+                                        <h4 className="price color-grayblue">&#163; { (item.price === null) ? null : item.price.toFixed(2) }</h4>
+                                        <h4 className="total">&#163; { (item.total === null) ? null : item.total.toFixed(2) }</h4>
                                     </div>
                                 </div>
                                 )
@@ -157,7 +157,7 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
                             {/* Displaying the total due amount for the invoice */}
                             <div className="amount-due">
                                 <span className='body-1'>Amount due</span>
-                                <span className="sp-invoice-total">&#163; {invoice.total}</span>
+                                <span className="sp-invoice-total">&#163; {invoice.total.toFixed(2)}</span>
                             </div>
 
                         </div>

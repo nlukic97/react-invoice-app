@@ -33,7 +33,6 @@ function getRandomId(invoices){
     } else {
         return getRandomId(invoices) //recursion in the event that the same id happens to exist
     }
-
 }
 
 
