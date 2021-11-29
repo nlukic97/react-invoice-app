@@ -121,11 +121,9 @@ body {
 .App {
   max-width: 730px;
   margin: 0 auto;
-}
-
-.single_page_invoice {
   margin-top: 65px;
 }
+
 .single_page_invoice .back-link {
   text-decoration: none;
   color: var(--default-text-color);
@@ -265,7 +263,13 @@ body {
   letter-spacing: -0.5px;
 }
 .confirm-delete .confirm-deletion-body {
-  color: var(--default-text-color);
+  color: var(--color-grayblue);
+}
+.confirm-delete .buttons-container {
+  text-align: right;
+}
+.confirm-delete .buttons-container button:not(:first-child) {
+  margin-left: 8px;
 }
 
 .color-grayblue {
@@ -502,7 +506,6 @@ html.dark-theme .toggle-theme-icon {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 72px;
 }
 .invoice_actions .__heading_and_amount p {
   color: var(--body-1);
@@ -725,6 +728,38 @@ html.dark-theme .toggle-theme-icon {
 }
 .form .button-container .draft {
   margin-right: 8px;
+}
+
+@media screen and (max-width: 1000px) {
+  .App {
+    margin-top: 168px;
+  }
+
+  .banner {
+    width: 100vw;
+    height: unset;
+    border-radius: 0;
+    flex-direction: row;
+  }
+  .banner .bottom-box {
+    display: flex;
+    align-items: center;
+    padding: unset;
+  }
+  .banner .bottom-box .theme-button-container {
+    border-bottom: none;
+    border-right: 1px solid #979797;
+    padding: 0 33px;
+    height: 100%;
+    display: flex;
+  }
+  .banner .bottom-box .avatar {
+    padding: 0 33px;
+  }
+
+  .form {
+    margin-top: 168px;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

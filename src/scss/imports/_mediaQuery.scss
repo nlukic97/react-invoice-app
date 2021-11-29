@@ -1,0 +1,36 @@
+@media screen and (max-width:1000px) {
+    .App {
+        margin-top: 168px;
+    }
+
+    .banner {
+        width: 100vw;
+        height: unset;
+        border-radius: 0;
+        flex-direction: row;
+
+        .bottom-box {
+            display: flex;
+            align-items: center;
+            padding: unset;
+            .theme-button-container {
+                border-bottom: none;
+                border-right: 1px solid #979797;
+                padding: 0 33px;
+                height: 100%;
+                display: flex;
+            }
+
+            .avatar {
+                padding: 0 33px;
+            }
+
+        }
+    }
+
+    .form {
+        margin-top: 168px;
+    }
+
+    
+}
