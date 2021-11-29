@@ -158,7 +158,7 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
 
 
     return (
-        <div className="form-overlay">
+        <div className="overlay">
             <form className="form">
                 {(invoice) === null ? <h1 className="sp-invoice-total">New Invoice</h1>: <h1 className="sp-invoice-total">Edit <span className="color-grayblue">#</span>{formData.id}</h1>}
                 
@@ -243,6 +243,10 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
                     <input type="text" name="description" id="description" defaultValue={formData.description} onChange={(e)=> updateData('description', e.target.value)} />
                 </div>
 
+                <div>
+
+                </div>
+
                 {/* labels */}
                 <div className="items-container color-grayblue sp-labels">
                     <div className="name">Item Name</div>
@@ -285,7 +289,7 @@ const Form = ({invoice, submitNewInvoice, discardChanges, updateInvoice}) => {
 
                  {/* if the invoice prop is empty, this would mean that we are creating a new invoice, and this should be shown */}
                     {(invoice === null) ?  (
-                        <div className="button-container">
+                        <div className="button-container creatingNew">
                             <button className="btn gray" onClick={e=>{
                                 e.preventDefault()
                                 discardChanges()

@@ -4,6 +4,7 @@ import {useState} from "react";
 
 import {convertDate} from "../methods/HelperMethods"; //import of custom helper method (used in InvoiceListItem.js and InvoicePage.js)
 import Form from "./Form";
+import ConfirmDeletion from "./ConfirmDeletion";
 
 const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
 
@@ -14,6 +15,7 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
     // console.log(invoice);
 
     const [FormVisibility, setFormVisibility] = useState(false)
+    const [confirmDeleteVisibility, setConfirmDeleteVisibility] = useState(false)
 
     function openInvoiceEditModal(){
         setFormVisibility(true)
@@ -23,14 +25,27 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
         updateInvoice(invoice)
         setFormVisibility(false)
     }
+
+    function handleDeleteConfirmation(response){
+        if(response === true) {
+            deleteInvoice(invoice.id)
+            navigate('/')
+        }
+        setConfirmDeleteVisibility(false);
+    }
     
 
     return (
         <div className="single_page_invoice">
+
+            {/* This is only shown if the user click on the "delete" button */}
+            {confirmDeleteVisibility === true ? <ConfirmDeletion deleteConfirmation={handleDeleteConfirmation} /> : null}
+            
             
             {/* This is only displayed if the user clicks the 'edit' button */}
             {(FormVisibility === true ? <Form invoice={invoice} discardChanges={()=>{setFormVisibility(false)}} updateInvoice={handleInvoiceUpdate}/> : null)}
             
+
             <Link to="/" className="back-link">
                 <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M6.342.886L2.114 5.114l4.228 4.228" stroke="#9277FF" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
                 <h4>Go back</h4>
@@ -57,11 +72,7 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
                             <h4>Edit</h4>
                         </button>
 
-                        <button className="btn red" onClick={()=>{
-                            //delete invoice and navigate back to home page
-                            deleteInvoice(invoice.id)
-                            navigate('/')
-                        }}>
+                        <button className="btn red" onClick={()=> setConfirmDeleteVisibility(true)}>
                             <h4>Delete</h4>
                         </button>
 
