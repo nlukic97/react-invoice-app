@@ -1,6 +1,7 @@
 @media screen and (max-width:1000px) {
     .App {
         margin-top: 168px;
+        width: 672px;
     }
 
     .banner {
@@ -30,6 +31,18 @@
 
     .form {
         margin-top: 168px;
+        padding-left: 58px;
+        width: 616px;
+    }
+
+    .invoice_items_list {
+        ._invoice_list_item {
+            .left {
+                .__id, .__due_date {
+                    margin-right: 27px;
+                }
+            }
+        }
     }
 
     

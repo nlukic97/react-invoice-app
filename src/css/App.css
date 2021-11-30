@@ -623,7 +623,7 @@ html.dark-theme .toggle-theme-icon {
 
 .form {
   background-color: var(--form-background);
-  border-radius: 8px;
+  border-radius: 0 8px 8px 0;
   width: 718px;
   box-sizing: border-box;
   padding: 58px;
@@ -733,6 +733,7 @@ html.dark-theme .toggle-theme-icon {
 @media screen and (max-width: 1000px) {
   .App {
     margin-top: 168px;
+    width: 672px;
   }
 
   .banner {
@@ -759,6 +760,12 @@ html.dark-theme .toggle-theme-icon {
 
   .form {
     margin-top: 168px;
+    padding-left: 58px;
+    width: 616px;
+  }
+
+  .invoice_items_list ._invoice_list_item .left .__id, .invoice_items_list ._invoice_list_item .left .__due_date {
+    margin-right: 27px;
   }
 }
 
