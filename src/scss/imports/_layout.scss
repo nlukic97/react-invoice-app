@@ -132,6 +132,10 @@ body {
                     }
                 }
 
+                .items-container-mobile {
+                    display: none;
+                }
+
                 .amount-due {
                     display: flex;
                     align-items: center;

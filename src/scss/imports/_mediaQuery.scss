@@ -46,12 +46,6 @@
         }
     }
 
-    .flex-container {
-        .status-container, .button-container {
-            // padding: 16px 0 16px 10px;
-        }
-    }
-
     
 }
 
@@ -110,6 +104,19 @@
                     .sp-labels {
                         display: none;
                     }
+
+                    .items-container {
+                        display: none; //from flex to none
+                    }
+
+                    .items-container-mobile {
+                        display:flex; //from none to flex
+                        justify-content:space-between;
+                        align-items:center;
+                        margin-bottom:25px;
+                        padding:0 32px;
+                    }
+
                 }
             }
         }

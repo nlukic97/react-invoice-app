@@ -6,6 +6,7 @@ import {convertDate} from "../methods/HelperMethods"; //import of custom helper 
 import Form from "./Form";
 import ConfirmDeletion from "./ConfirmDeletion";
 import InvoiceProducts from "./InvoiceProducts";
+import InvoiceProductsMobile from "./InvoiceProductsMobile";
 
 const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
 
@@ -149,7 +150,14 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
                             </div>
 
                             {/* Rendering all items of the invoice */}
-                            {invoice.items.map((item,index)=> <InvoiceProducts item={item} key={index}/>)}
+                            {invoice.items.map((item,index)=> {
+                                return (
+                                    <div>
+                                        <InvoiceProducts item={item} key={index}/>
+                                        <InvoiceProductsMobile item={item} key={index}/>
+                                    </div>
+                                )
+                            })}
 
                             {/* Displaying the total due amount for the invoice */}
                             <div className="amount-due">

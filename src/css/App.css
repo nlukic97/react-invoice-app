@@ -217,6 +217,9 @@ body {
 .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right .price, .single_page_invoice .flex-container .data-container .invoice-items-card .items-container .right .total {
   text-align: right;
 }
+.single_page_invoice .flex-container .data-container .invoice-items-card .items-container-mobile {
+  display: none;
+}
 .single_page_invoice .flex-container .data-container .invoice-items-card .amount-due {
   display: flex;
   align-items: center;
@@ -304,6 +307,10 @@ body {
   height: 100vh;
   width: 100vw;
   overflow-y: scroll;
+}
+
+.bold {
+  font-weight: 700;
 }
 
 button.btn {
@@ -805,6 +812,16 @@ html.dark-theme .toggle-theme-icon {
   }
   .single_page_invoice .flex-container .data-container .invoice-items-card .sp-labels {
     display: none;
+  }
+  .single_page_invoice .flex-container .data-container .invoice-items-card .items-container {
+    display: none;
+  }
+  .single_page_invoice .flex-container .data-container .invoice-items-card .items-container-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 0 32px;
   }
 }
 
