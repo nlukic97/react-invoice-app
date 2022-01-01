@@ -39,10 +39,12 @@ body {
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            flex-basis: 40%;
+            // flex-basis: 40%;
+            width: 30%;
             box-sizing: border-box;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
+            
             
             .status_label {
                 margin-right: 16px;
@@ -55,11 +57,12 @@ body {
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            flex-basis: 60%;
+            // flex-basis: 60%;
+            width: 70%;
             box-sizing: border-box;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-
+            
             > button:not(:first-child) {
                 margin-left: 8px;
             }

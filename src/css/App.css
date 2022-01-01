@@ -144,7 +144,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  flex-basis: 40%;
+  width: 30%;
   box-sizing: border-box;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -158,7 +158,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex-basis: 60%;
+  width: 70%;
   box-sizing: border-box;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -733,7 +733,8 @@ html.dark-theme .toggle-theme-icon {
 @media screen and (max-width: 1000px) {
   .App {
     margin-top: 168px;
-    width: 672px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
 
   .banner {
@@ -759,13 +760,48 @@ html.dark-theme .toggle-theme-icon {
   }
 
   .form {
-    margin-top: 168px;
+    margin-top: 103px;
     padding-left: 58px;
     width: 616px;
   }
 
   .invoice_items_list ._invoice_list_item .left .__id, .invoice_items_list ._invoice_list_item .left .__due_date {
     margin-right: 27px;
+  }
+}
+@media screen and (max-width: 647px) {
+  .single_page_invoice .flex-container .status-container, .single_page_invoice .flex-container .button-container {
+    width: 100%;
+  }
+  .single_page_invoice .flex-container .status-container {
+    justify-content: space-between;
+  }
+  .single_page_invoice .flex-container .status-container .__invoice_status {
+    margin-right: unset;
+  }
+  .single_page_invoice .flex-container .button-container {
+    order: 3;
+  }
+  .single_page_invoice .flex-container .data-container .first_line {
+    flex-direction: column;
+  }
+  .single_page_invoice .flex-container .data-container .first_line .sender_address_container {
+    align-items: flex-start;
+    margin-top: 30px;
+  }
+  .single_page_invoice .flex-container .data-container .second_line {
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .single_page_invoice .flex-container .data-container .second_line .dates .date-item:not(:first-child) {
+    margin-top: 20px;
+  }
+  .single_page_invoice .flex-container .data-container .second_line .client_email {
+    flex-basis: 100%;
+    margin-top: 30px;
+  }
+  .single_page_invoice .flex-container .data-container .invoice-items-card .sp-labels {
+    display: none;
   }
 }
 

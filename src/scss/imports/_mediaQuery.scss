@@ -1,7 +1,8 @@
 @media screen and (max-width:1000px) {
     .App {
         margin-top: 168px;
-        width: 672px;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 
     .banner {
@@ -30,7 +31,7 @@
     }
 
     .form {
-        margin-top: 168px;
+        margin-top: 103px;
         padding-left: 58px;
         width: 616px;
     }
@@ -45,5 +46,71 @@
         }
     }
 
+    .flex-container {
+        .status-container, .button-container {
+            // padding: 16px 0 16px 10px;
+        }
+    }
+
     
+}
+
+@media screen and (max-width:647px) {
+    .single_page_invoice {
+
+        .flex-container {
+            .status-container, .button-container {
+                width: 100%;
+            }
+
+            .status-container {
+                justify-content: space-between;
+
+                .__invoice_status {
+                    margin-right: unset;
+                }
+            }
+
+            .button-container {
+                order: 3;
+                // position: fixed;
+                // bottom: 0;
+                // left: 0;
+            }
+        
+            .data-container {
+                .first_line {
+                    flex-direction: column;
+
+                    .sender_address_container {
+                        align-items: flex-start;
+                        margin-top: 30px;
+                    }
+                }
+
+                .second_line {
+                    margin-top: 30px;
+                    flex-wrap: wrap;
+
+                    .dates {
+                        .date-item:not(:first-child){
+                            margin-top: 20px;
+                        }
+                    }
+
+                    .client_email {
+                        flex-basis: 100%;
+                        margin-top: 30px;
+                    }
+
+                }
+                
+                .invoice-items-card {
+                    .sp-labels {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }
