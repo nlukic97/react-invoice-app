@@ -800,6 +800,9 @@ html.dark-theme .toggle-theme-icon {
     flex-basis: 100%;
     margin-top: 30px;
   }
+  .single_page_invoice .flex-container .data-container .invoice-items-card {
+    margin-top: 50px;
+  }
   .single_page_invoice .flex-container .data-container .invoice-items-card .sp-labels {
     display: none;
   }

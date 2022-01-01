@@ -5,6 +5,7 @@ import {useState} from "react";
 import {convertDate} from "../methods/HelperMethods"; //import of custom helper method (used in InvoiceListItem.js and InvoicePage.js)
 import Form from "./Form";
 import ConfirmDeletion from "./ConfirmDeletion";
+import InvoiceProducts from "./InvoiceProducts";
 
 const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
 
@@ -33,7 +34,6 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
         }
         setConfirmDeleteVisibility(false);
     }
-    
 
     return (
         <div className="single_page_invoice">
@@ -149,21 +149,7 @@ const InvoicePage = ({invoices, deleteInvoice, markAsPaid, updateInvoice}) => {
                             </div>
 
                             {/* Rendering all items of the invoice */}
-                            {invoice.items.map((item,index)=> {
-                                return (
-                                <div className="items-container" key={index}>
-                                    <div className="left">
-                                        <h4>{item.name}</h4>
-                                    </div>
-
-                                    <div className="right">
-                                        <h4 className="quantity color-grayblue">{item.quantity}</h4>
-                                        <h4 className="price color-grayblue">&#163; { (item.price === null) ? null : item.price.toFixed(2) }</h4>
-                                        <h4 className="total">&#163; { (item.total === null) ? null : item.total.toFixed(2) }</h4>
-                                    </div>
-                                </div>
-                                )
-                            })}
+                            {invoice.items.map((item,index)=> <InvoiceProducts item={item} key={index}/>)}
 
                             {/* Displaying the total due amount for the invoice */}
                             <div className="amount-due">
