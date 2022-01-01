@@ -1,16 +1,6 @@
-.form-overlay {
-    background-color: rgba(0,0,0,0.5);
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    overflow-y: scroll;
-}
-
 .form {
     background-color: var(--form-background);
-    border-radius: 8px;
+    border-radius: 0 8px 8px 0;
     width: calc(615px + 103px);
     box-sizing: border-box;
     padding: 58px;
@@ -41,7 +31,8 @@
             border: 1px solid var(--input-border-color);
             background-color: var(--input-background);
             color: var(--default-text-color);
-
+            margin-top: 12px;
+            
             &:hover,&:focus {
                 outline: 1px solid #9277FF;
             }
@@ -70,7 +61,8 @@
     .items-container {
         display: flex;
         justify-content: space-between;
-        margin-top: 24px;
+        margin-top: 18px;
+        margin-bottom: 18px;
 
         input {
             font-weight: 700;
@@ -128,6 +120,10 @@
 
         &.editing {
             justify-content: flex-end;
+        }
+
+        &.editing, &.creatingNew {
+            margin-top: 40px;
         }
 
         .draft {

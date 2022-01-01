@@ -9,18 +9,14 @@ body {
 }
 
 .App {
-    // margin-left: 103px;
     max-width: 730px;
-    // max-width: 50; //combine this somehow
     margin: 0 auto;
-    // border: 1px solid red;
+    margin-top: 65px;
 }
 
 
 // Single page view
 .single_page_invoice  {
-    margin-top: 65px;
-
     .back-link {
         text-decoration: none;
         color:var(--default-text-color);
@@ -163,5 +159,41 @@ body {
         font-size: 20px;
         letter-spacing: -0.63px;
         color: #0C0E16;
+    }
+}
+
+
+.overlay.delete-box {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-delete {
+    background-color: var(--card-background);
+    width: 480px;
+    box-sizing: border-box;
+    padding: 48px;
+    border-radius: 8px;
+
+    h1 {
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: -0.5px;
+    }
+
+    .confirm-deletion-body {
+        color: var(--color-grayblue);
+    }
+
+    .buttons-container {
+        text-align: right;
+
+        button {
+            &:not(:first-child) {
+                margin-left: 8px;
+            }
+        }
     }
 }

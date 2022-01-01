@@ -102,6 +102,13 @@ h4, .h4 {
   letter-spacing: -0.23px;
 }
 
+.confirm-deletion-body {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0 0.25px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -114,11 +121,9 @@ body {
 .App {
   max-width: 730px;
   margin: 0 auto;
-}
-
-.single_page_invoice {
   margin-top: 65px;
 }
+
 .single_page_invoice .back-link {
   text-decoration: none;
   color: var(--default-text-color);
@@ -238,6 +243,35 @@ body {
   color: #0C0E16;
 }
 
+.overlay.delete-box {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-delete {
+  background-color: var(--card-background);
+  width: 480px;
+  box-sizing: border-box;
+  padding: 48px;
+  border-radius: 8px;
+}
+.confirm-delete h1 {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+}
+.confirm-delete .confirm-deletion-body {
+  color: var(--color-grayblue);
+}
+.confirm-delete .buttons-container {
+  text-align: right;
+}
+.confirm-delete .buttons-container button:not(:first-child) {
+  margin-left: 8px;
+}
+
 .color-grayblue {
   color: var(--color-grayblue);
 }
@@ -260,6 +294,16 @@ body {
   width: 16px;
   height: 16px;
   opacity: 0;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
 }
 
 button.btn {
@@ -462,7 +506,6 @@ html.dark-theme .toggle-theme-icon {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 72px;
 }
 .invoice_actions .__heading_and_amount p {
   color: var(--body-1);
@@ -578,19 +621,9 @@ html.dark-theme .toggle-theme-icon {
   margin-right: 8px;
 }
 
-.form-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-  overflow-y: scroll;
-}
-
 .form {
   background-color: var(--form-background);
-  border-radius: 8px;
+  border-radius: 0 8px 8px 0;
   width: 718px;
   box-sizing: border-box;
   padding: 58px;
@@ -619,6 +652,7 @@ html.dark-theme .toggle-theme-icon {
   border: 1px solid var(--input-border-color);
   background-color: var(--input-background);
   color: var(--default-text-color);
+  margin-top: 12px;
 }
 .form .form-group select:hover, .form .form-group select:focus, .form .form-group input:hover, .form .form-group input:focus {
   outline: 1px solid #9277FF;
@@ -640,7 +674,8 @@ html.dark-theme .toggle-theme-icon {
 .form .items-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 24px;
+  margin-top: 18px;
+  margin-bottom: 18px;
 }
 .form .items-container input {
   font-weight: 700;
@@ -688,8 +723,50 @@ html.dark-theme .toggle-theme-icon {
 .form .button-container.editing {
   justify-content: flex-end;
 }
+.form .button-container.editing, .form .button-container.creatingNew {
+  margin-top: 40px;
+}
 .form .button-container .draft {
   margin-right: 8px;
+}
+
+@media screen and (max-width: 1000px) {
+  .App {
+    margin-top: 168px;
+    width: 672px;
+  }
+
+  .banner {
+    width: 100vw;
+    height: unset;
+    border-radius: 0;
+    flex-direction: row;
+  }
+  .banner .bottom-box {
+    display: flex;
+    align-items: center;
+    padding: unset;
+  }
+  .banner .bottom-box .theme-button-container {
+    border-bottom: none;
+    border-right: 1px solid #979797;
+    padding: 0 33px;
+    height: 100%;
+    display: flex;
+  }
+  .banner .bottom-box .avatar {
+    padding: 0 33px;
+  }
+
+  .form {
+    margin-top: 168px;
+    padding-left: 58px;
+    width: 616px;
+  }
+
+  .invoice_items_list ._invoice_list_item .left .__id, .invoice_items_list ._invoice_list_item .left .__due_date {
+    margin-right: 27px;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

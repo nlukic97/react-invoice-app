@@ -21,3 +21,14 @@
     height: 16px;
     opacity: 0;
 }
+
+// If we need an overlay over the entire screen
+.overlay {
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+}
